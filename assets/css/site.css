@@ -404,3 +404,9 @@ footer{background:#222;color:#aaa;padding:60px 0;font-size:14px}
     font-weight:800;
   }
 }
+
+
+@media (max-width:768px){
+  .nav li.has-sub .submenu{display:none}
+  .nav li.has-sub.open .submenu{display:block}
+}
