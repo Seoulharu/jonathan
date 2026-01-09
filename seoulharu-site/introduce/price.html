@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>서울하루치과 | 비용 안내</title>
+
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <!-- (선택) font.css를 assets/css에 넣었다면 아래 주석 해제 -->
+  <!-- <link rel="stylesheet" href="../assets/css/font.css"> -->
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header id="header" style="background:rgba(255,255,255,.96); color:#222; box-shadow:0 2px 12px rgba(0,0,0,.06);">
+    <div class="logo">
+      <a href="../index.html">서울하루치과 <small>SEOUL HARU DENTAL</small></a>
+    </div>
+
+    <button class="menu-toggle" type="button" onclick="toggleMenu()">☰</button>
+
+    <nav class="nav" id="nav-menu">
+      <ul>
+        <li><a href="../index.html">홈</a></li>
+        <li><a href="../introduce/introduce.html">병원소개</a></li>
+        <li><a href="../introduce/doctor.html">의료진</a></li>
+        <li><a href="../special/special.html">특별함</a></li>
+        <li><a href="../treatments/index.html">진료안내</a></li>
+        <li><a href="../introduce/price.html">비용</a></li>
+        <li><a href="../introduce/contact.html">오시는길</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container title">
+        <h1>비용 안내</h1>
+        <p>치료 전, 기간과 비용을 먼저 안내드립니다.</p>
+      </div>
+    </section>
+
+    <!-- 안내 문구 -->
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <h2>미리 안내드립니다</h2>
+          <p>상태에 따라 치료 범위가 달라질 수 있습니다.</p>
+        </div>
+
+        <div style="max-width:980px;margin:0 auto;color:var(--muted);font-size:16px;line-height:1.7;word-break:keep-all;">
+          <p>
+            아래 비용은 이해를 돕기 위한 “기본 안내”입니다.
+            정확한 비용은 구강 상태, 검사 결과, 치료 범위에 따라 달라질 수 있으며,
+            치료 시작 전 상담에서 상세히 안내드립니다.
+          </p>
+          <p style="margin-top:10px;">
+            <strong>보험 진료</strong>(스케일링/충치 치료 일부 등)와
+            <strong>비보험 진료</strong>(심미/보철/임플란트 등)는 항목과 기준이 다를 수 있습니다.
+          </p>
+        </div>
+
+        <div class="btn-group" style="margin-top:22px;">
+          <a class="btn btn-fill" href="contact.html">오시는길</a>
+          <a class="btn btn-outline" href="../treatments/index.html">진료안내</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 비용표 -->
+    <section style="background:var(--light);">
+      <div class="container">
+        <div class="section-header">
+          <h2>대표 비용표(예시)</h2>
+          <p>여기 숫자만 나중에 네가 실제 금액으로 바꿔 끼우면 됨.</p>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:34%;">항목</th>
+                <th style="width:26%;">구분</th>
+                <th>비용(원)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>검진 / 상담</td>
+                <td>초진</td>
+                <td>(예) 0 ~ 20,000</td>
+              </tr>
+              <tr>
+                <td>스케일링</td>
+                <td>보험 적용</td>
+                <td>(예) 15,000 ~ 30,000</td>
+              </tr>
+              <tr>
+                <td>충치 치료</td>
+                <td>레진</td>
+                <td>(예) 80,000 ~ 200,000</td>
+              </tr>
+              <tr>
+                <td>신경 치료</td>
+                <td>치아 상태에 따라</td>
+                <td>(예) 150,000 ~ 350,000</td>
+              </tr>
+              <tr>
+                <td>크라운(보철)</td>
+                <td>지르코니아</td>
+                <td>(예) 450,000 ~ 650,000</td>
+              </tr>
+              <tr>
+                <td>임플란트</td>
+                <td>1개 기준</td>
+                <td>(예) 900,000 ~ 1,400,000</td>
+              </tr>
+              <tr>
+                <td>치아미백</td>
+                <td>1회 / 패키지</td>
+                <td>(예) 150,000 ~ 400,000</td>
+              </tr>
+              <tr>
+                <td>교정</td>
+                <td>부분 / 전체</td>
+                <td>(예) 1,500,000 ~ 6,000,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note" style="margin-top:16px;">
+          * 치료 범위/재료/난이도에 따라 달라질 수 있습니다. 정확한 비용은 상담 후 안내드립니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- 결제/안내 -->
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <h2>결제 / 안내</h2>
+          <p>필요하면 이 섹션을 유지하고, 아니면 통째로 삭제해도 됩니다.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>치료 전 안내</h3>
+            <p>치료 계획, 기간, 비용을 먼저 설명합니다.</p>
+          </div>
+          <div class="card">
+            <h3>분할 결제</h3>
+            <p>치료 성격에 따라 분할 결제가 가능한 경우가 있습니다(상담 시 안내).</p>
+          </div>
+          <div class="card">
+            <h3>서류 발급</h3>
+            <p>진료확인서/영수증/세부내역서 등 필요 서류는 접수에서 안내드립니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h3>서울하루치과</h3>
+          <div class="info-row">주소: (여기에 주소)</div>
+          <div class="info-row">전화: (여기에 전화번호)</div>
+          <div class="info-row">진료시간: (여기에 진료시간)</div>
+
+          <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="btn" style="background:#333;color:#fff;" href="contact.html">오시는길</a>
+            <a class="btn" style="background:#333;color:#fff;" href="../index.html">홈으로</a>
+          </div>
+        </div>
+
+        <div class="map-box">
+          지도 영역(나중에 카카오맵 넣을 자리)
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © Seoul Haru Dental. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/site.js"></script>
+</body>
+</html>

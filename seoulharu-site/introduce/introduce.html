@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>서울하루치과 | 병원소개</title>
+
+  <!-- 최소 구성(초보용): site.css만 있어도 동작 -->
+  <link rel="stylesheet" href="../assets/css/site.css">
+
+  <!-- (선택) Pretendard 폰트를 font.css로 쓰려면 아래도 추가하고,
+       ../assets/css/font.css 파일을 만들어 넣어두면 됨 -->
+  <!-- <link rel="stylesheet" href="../assets/css/font.css"> -->
+</head>
+
+<body>
+  <!-- SUB PAGE HEADER: 흰 배경 고정(가독성 때문에) -->
+  <header id="header" style="background:rgba(255,255,255,.96); color:#222; box-shadow:0 2px 12px rgba(0,0,0,.06);">
+    <div class="logo">
+      <a href="../index.html">서울하루치과 <small>SEOUL HARU DENTAL</small></a>
+    </div>
+
+    <button class="menu-toggle" type="button" onclick="toggleMenu()">☰</button>
+
+    <nav class="nav" id="nav-menu">
+      <ul>
+        <li><a href="../index.html">홈</a></li>
+        <li><a href="../introduce/introduce.html">병원소개</a></li>
+        <li><a href="../introduce/doctor.html">의료진</a></li>
+        <li><a href="../special/special.html">특별함</a></li>
+        <li><a href="../treatments/index.html">진료안내</a></li>
+        <li><a href="../introduce/price.html">비용</a></li>
+        <li><a href="../introduce/contact.html">오시는길</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container title">
+        <h1>병원소개</h1>
+        <p>서울하루치과는 ‘오늘 하루를 편하게’ 만드는 진료를 지향합니다.</p>
+      </div>
+    </section>
+
+    <!-- INTRO TEXT -->
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <h2>서울하루치과의 기준</h2>
+          <p>설명은 쉽게, 진료는 꼼꼼하게. 과잉 없이 필요한 만큼만.</p>
+        </div>
+
+        <div style="max-width:920px;margin:0 auto;text-align:center;color:var(--muted);font-size:17px;word-break:keep-all;">
+          <p>
+            처음 방문한 날의 불편함부터 치료가 끝난 뒤의 관리까지,
+            환자분의 ‘하루’가 더 가벼워지도록 진료의 기준을 세웠습니다.
+          </p>
+          <p style="margin-top:14px;">
+            서울하루치과는 상담–진단–치료–사후관리까지 흐름을 단순하게 만들고,
+            모든 단계에서 “왜 필요한지”를 먼저 설명합니다.
+          </p>
+
+          <div class="btn-group" style="margin-top:28px;">
+            <a class="btn btn-fill" href="contact.html">오시는길</a>
+            <a class="btn btn-fill" href="price.html">비용 안내</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEY POINTS -->
+    <section style="background:var(--light);">
+      <div class="container">
+        <div class="section-header">
+          <h2>진료 약속 4가지</h2>
+          <p>서울하루치과가 지키는 핵심 원칙입니다.</p>
+        </div>
+
+        <div class="grid-4">
+          <div class="card">
+            <div class="icon-box">🩻</div>
+            <h3>정밀 진단</h3>
+            <p>현재 상태를 정확히 파악하고, 치료의 우선순위를 명확히 안내합니다.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon-box">🧑‍⚕️</div>
+            <h3>과잉 없는 치료</h3>
+            <p>필요한 만큼만. 대안이 있으면 함께 비교해 드립니다.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon-box">🧼</div>
+            <h3>멸균/감염관리</h3>
+            <p>기본이 가장 중요합니다. 환자별 진료 환경을 철저히 관리합니다.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon-box">📌</div>
+            <h3>사후관리</h3>
+            <p>치료 후가 더 중요합니다. 관리 루틴과 체크 포인트를 안내합니다.</p>
+          </div>
+        </div>
+
+        <div class="promise-list">
+          <h3>이런 방식으로 진행합니다</h3>
+          <div class="promise-items">
+            <div class="promise-item">✅ 치료 전: 계획/기간/비용을 먼저</div>
+            <div class="promise-item">✅ 치료 중: 불편감 체크</div>
+            <div class="promise-item">✅ 치료 후: 관리 방법을 문장으로</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FACILITY (간단 버전) -->
+    <section class="section-facility">
+      <div class="container">
+        <div class="section-header">
+          <h2>진료 공간</h2>
+          <p>처음 방문해도 편안한 동선과 분위기를 만들었습니다.</p>
+        </div>
+
+        <!-- (선택) 영상이 있으면 사용 / 없으면 이 video 태그 삭제해도 됨 -->
+        <video class="facility-video" controls muted playsinline preload="metadata">
+          <source src="../assets/media/tour.mp4" type="video/mp4" />
+        </video>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="../assets/images/sub1.png" alt="공간 이미지 1">
+            <div class="caption">대기 공간</div>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/images/sub2.png" alt="공간 이미지 2">
+            <div class="caption">상담 공간</div>
+          </div>
+          <div class="gallery-item">
+            <img src="../assets/images/wait.png" alt="공간 이미지 3">
+            <div class="caption">진료 공간</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h3>서울하루치과</h3>
+
+          <div class="info-row">주소: (여기에 주소)</div>
+          <div class="info-row">전화: (여기에 전화번호)</div>
+          <div class="info-row">진료시간: (여기에 진료시간)</div>
+
+          <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="btn" style="background:#333;color:#fff;" href="contact.html">오시는길</a>
+            <a class="btn" style="background:#333;color:#fff;" href="../index.html">홈으로</a>
+          </div>
+        </div>
+
+        <div class="map-box">
+          지도 영역(나중에 카카오맵 넣을 자리)
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © Seoul Haru Dental. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/site.js"></script>
+</body>
+</html>
