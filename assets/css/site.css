@@ -254,3 +254,90 @@ footer{background:#222;color:#aaa;padding:60px 0;font-size:14px}
 @media (max-width:1024px){
   .grid-3{grid-template-columns:repeat(2,1fr)}
 }
+
+
+/* ===== 추가: 상단 메뉴(데스크탑) 더 크게 + 드롭다운 ===== */
+.nav ul{gap:32px;font-size:16px}
+.nav a{display:inline-block;padding:10px 2px}
+.nav li{position:relative}
+.nav li.has-sub > a::after{content:"▾";font-size:12px;margin-left:6px;opacity:.7}
+
+.submenu{
+  position:absolute;left:50%;top:100%;
+  transform:translateX(-50%);
+  background:#fff;color:var(--dark);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:10px;
+  min-width:220px;
+  box-shadow:var(--shadow);
+  opacity:0;pointer-events:none;
+  translate:0 -10px;
+  transition:.2s;
+}
+.nav li.has-sub:hover .submenu{
+  opacity:1;pointer-events:auto;
+  translate:0 0;
+}
+.submenu li{padding:0}
+.submenu a{
+  display:block;
+  padding:12px 12px;
+  border-radius:10px;
+  font-weight:900;
+  color:#333;
+}
+.submenu a:hover{background:var(--light);color:var(--primary)}
+
+/* 모바일에서는 드롭다운 숨김(햄버거 메뉴만 사용) */
+@media (max-width:768px){
+  .submenu{display:none}
+}
+
+/* ===== 추가: 메인 첫 화면 버튼 대신 스크롤 힌트 ===== */
+.scroll-hint{
+  margin-top:26px;
+  display:flex;flex-direction:column;align-items:center;
+  gap:10px;
+  font-size:12px;
+  letter-spacing:2px;
+  opacity:.85;
+}
+.scroll-hint .arrow{
+  width:22px;height:22px;
+  border-left:2px solid #fff;
+  border-bottom:2px solid #fff;
+  transform:rotate(-45deg);
+  animation:down 1.6s infinite;
+}
+@keyframes down{
+  0%{transform:rotate(-45deg) translate(0,0);opacity:.2}
+  50%{transform:rotate(-45deg) translate(-4px,4px);opacity:1}
+  100%{transform:rotate(-45deg) translate(0,0);opacity:.2}
+}
+
+/* ===== 추가: 스크롤형 “사진+설명” 2단 레이아웃 ===== */
+.split{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:40px;
+  align-items:center;
+}
+.split.reverse{grid-template-columns:.95fr 1.05fr}
+.split .photo{
+  height:360px;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  background:#eee;
+}
+.split .photo img{height:100%}
+@media (max-width:900px){
+  .split,.split.reverse{grid-template-columns:1fr}
+  .split .photo{height:240px}
+}
+
+/* (혹시 grid-3이 없으면) */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:1024px){.grid-3{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:768px){.grid-3{grid-template-columns:1fr}}
