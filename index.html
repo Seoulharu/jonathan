@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>서울하루치과</title>
+
+  <!-- 기존 공통 CSS -->
+  <link rel="stylesheet" href="assets/css/site.css">
+
+  <!-- 메인 전용(추가) 스타일: 카드 이미지, 스크롤 리빌, 의사 슬라이더 -->
+  <style>
+    /* ===== Header: 로고 마크 + 텍스트 ===== */
+    .brand { display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit; }
+    .brand-mark { width:30px; height:30px; object-fit:contain; }
+    .brand-text { display:flex; flex-direction:column; line-height:1.05; }
+    .brand-text strong { font-size:18px; letter-spacing:-0.2px; }
+    .brand-text small { font-size:11px; opacity:.75; letter-spacing:1px; margin-top:3px; }
+
+    /* ===== Hero ===== */
+    .hero {
+      position:relative; min-height:72vh; display:flex; align-items:center;
+      overflow:hidden; background:#0f172a;
+    }
+    .hero .bg-fallback {
+      position:absolute; inset:0;
+      background-size:cover; background-position:center;
+      transform:scale(1.03);
+      filter:brightness(.7);
+    }
+    .hero video {
+      position:absolute; inset:0;
+      width:100%; height:100%; object-fit:cover;
+      filter:brightness(.75);
+    }
+    .hero .overlay { position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.30), rgba(0,0,0,.55)); }
+    .hero .inner {
+      position:relative; z-index:2;
+      max-width:1100px; margin:0 auto; padding:110px 18px 70px;
+      color:#fff;
+    }
+    .hero h1 { margin:0; font-size:42px; letter-spacing:-0.8px; }
+    .hero p  { margin:14px 0 0; max-width:560px; opacity:.9; line-height:1.6; }
+    @media (max-width:768px){
+      .hero { min-height:64vh; }
+      .hero h1 { font-size:30px; }
+    }
+
+    /* ===== Section helpers ===== */
+    .section { padding:64px 0; }
+    .section.alt { background:var(--light, #f6f7fb); }
+    .container { max-width:1100px; margin:0 auto; padding:0 18px; }
+
+    .section-title { margin-bottom:18px; }
+    .section-title h2 { margin:0; font-size:24px; letter-spacing:-0.4px; }
+    .section-title p { margin:10px 0 0; color:var(--muted, #667085); line-height:1.6; }
+
+    /* ===== Reveal(스크롤 올라오는 효과) ===== */
+    .reveal { opacity:0; transform:translateY(22px); transition:opacity .6s ease, transform .6s ease; }
+    .reveal.is-visible { opacity:1; transform:translateY(0); }
+
+    /* ===== Grid ===== */
+    .grid-4 { display:grid; grid-template-columns:repeat(4, 1fr); gap:18px; }
+    @media (max-width:1024px){ .grid-4{ grid-template-columns:repeat(2, 1fr);} }
+    @media (max-width:640px){ .grid-4{ grid-template-columns:1fr;} }
+
+    /* ===== Image Card (진료과목/특별함) ===== */
+    .img-card{
+      position:relative; border-radius:16px; overflow:hidden;
+      border:1px solid var(--border, #e6e8ee);
+      background:#111;
+      min-height:170px;
+      text-decoration:none;
+      display:block;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+    }
+    .img-card img{
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:cover; filter:brightness(.72);
+      transform:scale(1.03);
+    }
+    .img-card .shade{ position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.55)); }
+    .img-card .content{
+      position:relative; z-index:2; color:#fff;
+      padding:18px;
+      display:flex; flex-direction:column; gap:8px;
+      min-height:170px;
+      justify-content:flex-end;
+    }
+    .img-card h3{ margin:0; font-size:18px; letter-spacing:-0.3px; }
+    .img-card p{ margin:0; opacity:.9; font-size:13px; line-height:1.5; }
+    .img-card .tag{
+      display:inline-flex; width:max-content;
+      font-size:12px; padding:6px 10px; border-radius:999px;
+      background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(4px);
+    }
+
+    /* ===== Doctor slider ===== */
+    .doctor-wrap{
+      display:grid; grid-template-columns:1fr; gap:16px;
+      border-radius:18px; border:1px solid var(--border, #e6e8ee);
+      background:#fff;
+      padding:18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.05);
+    }
+    .doctor-top{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:14px;
+    }
+    .doctor-top .text h3{ margin:0; font-size:18px; }
+    .doctor-top .text p{ margin:8px 0 0; color:var(--muted, #667085); line-height:1.6; }
+    .doctor-controls{ display:flex; gap:8px; }
+    .btn-icon{
+      width:38px; height:38px; border-radius:12px;
+      border:1px solid var(--border, #e6e8ee);
+      background:#fff; cursor:pointer;
+      display:grid; place-items:center;
+      font-size:18px;
+    }
+    .btn-icon:active{ transform:scale(.98); }
+
+    .doctor-slider{
+      position:relative;
+      border-radius:16px; overflow:hidden;
+      border:1px solid var(--border, #e6e8ee);
+      background:#111;
+      height:320px;
+    }
+    .doctor-slide{
+      position:absolute; inset:0;
+      opacity:0; transition:opacity .35s ease;
+    }
+    .doctor-slide.active{ opacity:1; }
+    .doctor-slide img{ width:100%; height:100%; object-fit:cover; filter:brightness(.86); }
+    .doctor-caption{
+      position:absolute; left:14px; bottom:14px;
+      background:rgba(0,0,0,.45);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:12px;
+      padding:10px 12px;
+      font-size:13px;
+      backdrop-filter: blur(4px);
+    }
+    @media (max-width:768px){
+      .doctor-slider{ height:250px; }
+    }
+
+    /* ===== Interior gallery ===== */
+    .gallery{
+      display:grid; grid-template-columns:repeat(3, 1fr); gap:12px;
+    }
+    .gallery .g{
+      border-radius:16px; overflow:hidden;
+      border:1px solid var(--border, #e6e8ee);
+      background:#eee;
+      height:210px;
+    }
+    .gallery img{ width:100%; height:100%; object-fit:cover; }
+    @media (max-width:900px){ .gallery{ grid-template-columns:1fr; } .gallery .g{ height:220px; } }
+
+    /* ===== Simple buttons ===== */
+    .btn-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+    .btn-main{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px; border-radius:12px;
+      text-decoration:none; font-weight:900;
+      border:1px solid var(--border, #e6e8ee);
+      background:#111; color:#fff;
+    }
+    .btn-sub{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px; border-radius:12px;
+      text-decoration:none; font-weight:900;
+      border:1px solid var(--border, #e6e8ee);
+      background:#fff; color:#111;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header id="header">
+    <div class="logo">
+      <a class="brand" href="index.html">
+        <!-- ✅ 네가 보낸 로고를 아래 파일명으로 넣어줘 -->
+        <img class="brand-mark" src="assets/images/logo_mark.png" alt="서울하루치과 로고">
+        <span class="brand-text">
+          <strong>서울하루치과</strong>
+          <small>SEOUL HARU DENTAL</small>
+        </span>
+      </a>
+    </div>
+
+    <button class="menu-toggle" type="button" onclick="toggleMenu()">☰</button>
+
+    <nav class="nav" id="nav-menu">
+      <ul>
+        <li><a href="index.html">홈</a></li>
+        <li><a href="introduce/introduce.html">병원소개</a></li>
+        <li><a href="introduce/doctor.html">의료진</a></li>
+        <li><a href="special/special.html">특별함</a></li>
+        <li><a href="treatments/index.html">진료안내</a></li>
+        <li><a href="introduce/price.html">비용</a></li>
+        <li><a href="introduce/contact.html">오시는길</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO (영상/사진은 네가 준비) -->
+    <section class="hero">
+      <!-- 대체 이미지(영상이 안 뜰 때) -->
+      <div class="bg-fallback" style="background-image:url('assets/images/hero_fallback.jpg');"></div>
+
+      <!-- 히어로 영상(네가 준비) -->
+      <video autoplay muted loop playsinline preload="metadata" poster="assets/images/hero_fallback.jpg">
+        <source src="assets/media/hero.mp4" type="video/mp4" />
+      </video>
+
+      <div class="overlay"></div>
+
+      <div class="inner">
+        <h1 class="reveal">설명은 쉽게, 진료는 꼼꼼하게</h1>
+        <p class="reveal" style="transition-delay:.08s;">
+          서울하루치과는 과잉 없이, 필요한 치료부터 안내합니다. 스크롤만 내려도 핵심 정보가 바로 보이게 구성했습니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- ✅ 순서 변경: 진료과목이 의료진보다 위 -->
+    <!-- 진료 과목(이미지 포함) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>진료 과목</h2>
+          <p>각 항목을 눌러 자세히 확인하세요.</p>
+        </div>
+
+        <div class="grid-4">
+          <a class="img-card reveal" href="treatments/implants/implant.html">
+            <img src="assets/images/treat_implant.jpg" alt="임플란트">
+            <div class="shade"></div>
+            <div class="content">
+              <span class="tag">IMPLANT</span>
+              <h3>임플란트</h3>
+              <p>진단 → 계획 → 사후관리 흐름으로 안내합니다.</p>
+            </div>
+          </a>
+
+          <a class="img-card reveal" style="transition-delay:.05s;" href="treatments/tooth/tooth.html">
+            <img src="assets/images/treat_tooth.jpg" alt="보존/충치">
+            <div class="shade"></div>
+            <div class="content">
+              <span class="tag">TOOTH</span>
+              <h3>보존/충치</h3>
+              <p>가능하면 남기는 치료를 먼저 고려합니다.</p>
+            </div>
+          </a>
+
+          <a class="img-card reveal" style="transition-delay:.10s;" href="treatments/beauty/beauty.html">
+            <img src="assets/images/treat_beauty.jpg" alt="심미/미백">
+            <div class="shade"></div>
+            <div class="content">
+              <span class="tag">AESTHETIC</span>
+              <h3>심미/미백</h3>
+              <p>자연스러운 결과를 기준으로 제안합니다.</p>
+            </div>
+          </a>
+
+          <a class="img-card reveal" style="transition-delay:.15s;" href="introduce/price.html">
+            <img src="assets/images/treat_price.jpg" alt="비용 안내">
+            <div class="shade"></div>
+            <div class="content">
+              <span class="tag">PRICE</span>
+              <h3>비용 안내</h3>
+              <p>치료 전, 기간·비용·대안을 먼저 안내합니다.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 의료진(사진 2장 + 좌/우 버튼 슬라이드) -->
+    <section class="section alt">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>의료진</h2>
+          <p>사진 2장을 슬라이드로 넘길 수 있게 구성했습니다.</p>
+        </div>
+
+        <div class="doctor-wrap reveal">
+          <div class="doctor-top">
+            <div class="text">
+              <h3>대표원장 (이름 입력)</h3>
+              <p>
+                설명은 쉽게, 치료는 꼼꼼하게. 현재 상태와 우선순위를 먼저 잡고, 필요 치료부터 안내합니다.
+              </p>
+            </div>
+            <div class="doctor-controls">
+              <button class="btn-icon" type="button" id="docPrev" aria-label="이전">‹</button>
+              <button class="btn-icon" type="button" id="docNext" aria-label="다음">›</button>
+            </div>
+          </div>
+
+          <div class="doctor-slider" id="doctorSlider">
+            <div class="doctor-slide active">
+              <img src="assets/images/doctor_slide_01.jpg" alt="의료진 사진 1">
+              <div class="doctor-caption">의료진 사진 1 (프로필/정면 추천)</div>
+            </div>
+            <div class="doctor-slide">
+              <img src="assets/images/doctor_slide_02.jpg" alt="의료진 사진 2">
+              <div class="doctor-caption">의료진 사진 2 (진료 중 측면 추천)</div>
+            </div>
+          </div>
+
+          <div class="btn-row">
+            <a class="btn-main" href="introduce/doctor.html">의료진 자세히</a>
+            <a class="btn-sub" href="special/special.html">서울하루치과의 특별함</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 특별함(각 항목 이미지 포함) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>서울하루치과의 특별함</h2>
+          <p>각 기준을 이미지로 더 직관적으로 보여줍니다.</p>
+        </div>
+
+        <div class="grid-4">
+          <a class="img-card reveal" href="special/special.html">
+            <img src="assets/images/special_diagnosis.jpg" alt="정밀 진단">
+            <div class="shade"></div>
+            <div class="content">
+              <span class="tag">01</span>
+              <h3>정밀 진단</h3>
+              <p>현재 상태를 정확히 보고 우선순위를 정합니다.</p>
+            </div>
+          </a>
+
+          <a class="img-card reveal" style="transition-delay:.05s;" href="special/special.html">
+            <img src="assets/images/special_explain.jpg" alt="치료 전 안내">
+            <div class="shade"></div>
+            <div class="content">
+              <span class="tag">02</span>
+              <h3>치료 전 안내</h3>
+              <p>기간·비용·대안을 먼저 설명합니다.</p>
+            </div>
+          </a>
+
+          <a class="img-card reveal" style="transition-delay:.10s;" href="special/special.html">
+            <img src="assets/images/special_conservative.jpg" alt="과잉 없는 치료">
+            <div class="shade"></div>
+            <div class="content">
+              <span class="tag">03</span>
+              <h3>과잉 없는 치료</h3>
+              <p>가능하면 보존(남기는 치료)을 먼저 고려합니다.</p>
+            </div>
+          </a>
+
+          <a class="img-card reveal" style="transition-delay:.15s;" href="special/special.html">
+            <img src="assets/images/special_followup.jpg" alt="사후관리">
+            <div class="shade"></div>
+            <div class="content">
+              <span class="tag">04</span>
+              <h3>사후관리</h3>
+              <p>치료 후 관리 루틴까지 안내합니다.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+<section class="section alt">
+  <div class="container reveal">
+    <a href="introduce/contact.html" class="img-card" style="min-height:240px;">
+      <img src="assets/images/mood_family_field.jpg" alt="편안한 일상">
+      <div class="shade"></div>
+      <div class="content" style="min-height:240px;">
+        <span class="tag">OUR PROMISE</span>
+        <h3>치료의 목표는 ‘일상으로 돌아가는 것’입니다</h3>
+        <p>과잉 없이, 필요한 치료부터. 상담은 쉽게, 과정은 투명하게.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+
+    <!-- 내부/인테리어 -->
+    <section class="section alt">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>내부/인테리어</h2>
+          <p>처음 방문해도 편안한 동선과 분위기.</p>
+        </div>
+
+        <div class="gallery reveal">
+          <div class="g"><img src="assets/images/interior_01.jpg" alt="인테리어 1"></div>
+          <div class="g"><img src="assets/images/interior_02.jpg" alt="인테리어 2"></div>
+          <div class="g"><img src="assets/images/interior_03.jpg" alt="인테리어 3"></div>
+        </div>
+
+        <div class="btn-row">
+          <a class="btn-main" href="introduce/interior.html">내부 더보기</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ 처음 오셔도 편하게: 내부/인테리어 하단으로 이동(요청 반영) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>처음 오셔도 편하게</h2>
+          <p>기본 정보는 스크롤만 내려도 바로 확인되게.</p>
+        </div>
+
+<div class="reveal" style="margin:18px 0 22px;">
+  <div class="img-card" style="min-height:220px;">
+    <img src="assets/images/mood_couple_warm.jpg" alt="편안한 분위기">
+    <div class="shade"></div>
+    <div class="content" style="min-height:220px;">
+      <span class="tag">WELCOME</span>
+      <h3>처음 오셔도, 설명부터 천천히</h3>
+      <p>현재 상태와 우선순위를 먼저 잡고 진행합니다.</p>
+    </div>
+  </div>
+</div>
+
+        <div class="grid-4">
+          <div class="img-card reveal" style="min-height:140px;">
+            <img src="assets/images/info_location.jpg" alt="주소">
+            <div class="shade"></div>
+            <div class="content" style="min-height:140px;">
+              <span class="tag">주소</span>
+              <h3>(여기에 주소)</h3>
+              <p>주차/대중교통 안내는 오시는길에서 확인</p>
+            </div>
+          </div>
+
+          <div class="img-card reveal" style="min-height:140px; transition-delay:.05s;">
+            <img src="assets/images/info_hours.jpg" alt="진료시간">
+            <div class="shade"></div>
+            <div class="content" style="min-height:140px;">
+              <span class="tag">진료시간</span>
+              <h3>(예) 평일 10:00~19:00</h3>
+              <p>(예) 토 10:00~14:00 / 일·공휴일 휴진</p>
+            </div>
+          </div>
+
+          <a class="img-card reveal" style="min-height:140px; transition-delay:.10s;" href="introduce/contact.html">
+            <img src="assets/images/info_directions.jpg" alt="오시는길">
+            <div class="shade"></div>
+            <div class="content" style="min-height:140px;">
+              <span class="tag">오시는길</span>
+              <h3>지도/주차/입구 안내</h3>
+              <p>처음 방문이라면 꼭 확인해 주세요.</p>
+            </div>
+          </a>
+
+          <a class="img-card reveal" style="min-height:140px; transition-delay:.15s;" href="tel:01000000000">
+            <img src="assets/images/info_call.jpg" alt="전화문의">
+            <div class="shade"></div>
+            <div class="content" style="min-height:140px;">
+              <span class="tag">전화</span>
+              <h3>(여기에 대표번호)</h3>
+              <p>빠른 문의는 전화가 가장 편합니다.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!-- 오시는길(요약) -->
+    <section class="section alt">
+      <div class="container">
+        <div class="section-title reveal">
+          <h2>오시는길</h2>
+          <p>지도와 기본 정보를 한 번에 확인하세요.</p>
+        </div>
+
+        <div class="reveal" style="border-radius:18px; border:1px solid var(--border,#e6e8ee); overflow:hidden; background:#fff;">
+          <div style="min-height:280px; display:grid; place-items:center; color:#667085;">
+            지도 영역(카카오맵 자리)
+          </div>
+        </div>
+
+        <div class="btn-row reveal">
+          <a class="btn-main" href="introduce/contact.html">오시는길 자세히</a>
+          <a class="btn-sub" href="tel:01000000000">전화 문의</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h3>서울하루치과</h3>
+          <div class="info-row">주소: (여기에 주소)</div>
+          <div class="info-row">전화: (여기에 전화번호)</div>
+          <div class="info-row">진료시간: (여기에 진료시간)</div>
+          <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="btn" style="background:#333;color:#fff;" href="introduce/contact.html">오시는길</a>
+            <a class="btn" style="background:#333;color:#fff;" href="treatments/index.html">진료안내</a>
+          </div>
+        </div>
+        <div class="map-box">지도 영역</div>
+      </div>
+      <div class="footer-bottom" id="footerYear">© Seoul Haru Dental. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- 공통 JS -->
+  <script src="assets/js/site.js"></script>
+
+  <!-- 메인 전용 JS: 스크롤 리빌 + 의사 사진 슬라이더 -->
+  <script>
+    // footer year
+    (function(){
+      const el = document.getElementById('footerYear');
+      if(el){ el.textContent = '© ' + new Date().getFullYear() + ' Seoul Haru Dental. All rights reserved.'; }
+    })();
+
+    // 스크롤 리빌(글씨/카드가 위로 올라오며 등장)
+    (function(){
+      const targets = document.querySelectorAll('.reveal');
+      if(!('IntersectionObserver' in window)){
+        targets.forEach(t => t.classList.add('is-visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting) e.target.classList.add('is-visible');
+        });
+      }, { threshold: 0.15 });
+      targets.forEach(t => io.observe(t));
+    })();
+
+    // 의료진 2장 슬라이더
+    (function(){
+      const slider = document.getElementById('doctorSlider');
+      const prev = document.getElementById('docPrev');
+      const next = document.getElementById('docNext');
+      if(!slider || !prev || !next) return;
+
+      const slides = Array.from(slider.querySelectorAll('.doctor-slide'));
+      if(slides.length < 2) return;
+
+      let idx = 0;
+      const show = (i) => {
+        slides.forEach((s, n) => s.classList.toggle('active', n === i));
+      };
+
+      prev.addEventListener('click', () => {
+        idx = (idx - 1 + slides.length) % slides.length;
+        show(idx);
+      });
+      next.addEventListener('click', () => {
+        idx = (idx + 1) % slides.length;
+        show(idx);
+      });
+    })();
+  </script>
+</body>
+</html>
