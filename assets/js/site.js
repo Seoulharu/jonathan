@@ -47,6 +47,16 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
 
         li.appendChild(submenu);
+        // 모바일: 첫 탭은 펼치기(이동 막기), 두 번째 탭은 기존 링크로 이동
+        treatLink.addEventListener("click", (e) => {
+          if (window.matchMedia("(max-width: 768px)").matches) {
+            if (!li.classList.contains("open")) {
+              e.preventDefault();
+              li.classList.add("open");
+            }
+          }
+        });
+
       }
     }
   }

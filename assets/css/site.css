@@ -260,7 +260,8 @@ footer{background:#222;color:#aaa;padding:60px 0;font-size:14px}
 .nav ul{gap:32px;font-size:16px}
 .nav a{display:inline-block;padding:10px 2px}
 .nav li{position:relative}
-.nav li.has-sub > a::after{content:"▾";font-size:12px;margin-left:6px;opacity:.7}
+.nav li.has-sub > a::after{content:"▼";font-size:12px;margin-left:6px;opacity:.7}
+
 
 .submenu{
   position:absolute;left:50%;top:100%;
@@ -341,3 +342,65 @@ footer{background:#222;color:#aaa;padding:60px 0;font-size:14px}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 @media (max-width:1024px){.grid-3{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:768px){.grid-3{grid-template-columns:1fr}}
+
+
+/* ===== 모바일 메뉴 여백 줄이기 + 진료안내 화살표 우측정렬/크기업 ===== */
+@media (max-width:768px){
+
+  /* 메뉴 패널 위쪽 빈공간(패딩) 줄이기 */
+  .nav{
+    padding-top:60px;   /* 기존 84px보다 줄임 */
+  }
+
+  /* li 자체 패딩은 없애고, a를 풀폭 클릭영역으로 */
+  .nav ul{margin:0;padding:0}
+  .nav li{
+    padding:0;
+    border-bottom:1px solid #eee;
+  }
+  .nav li a{
+    display:flex;
+    align-items:center;
+    width:100%;
+    padding:14px 18px;   /* ← 여기로 상하 여백 통일 (원하면 12px로 더 줄여도 됨) */
+    font-size:16px;
+    font-weight:900;
+    color:#333;
+  }
+
+  /* '진료안내' 화살표를 오른쪽 끝으로 보내고 크기 키우기 */
+  .nav li.has-sub > a::after{
+    margin-left:auto;    /* 오른쪽 정렬 */
+    font-size:16px;      /* 화살표 크기 */
+    opacity:.75;
+  }
+}
+
+
+/* ===== 모바일: 진료안내(▼) 누르면 서브메뉴 펼침 ===== */
+@media (max-width:768px){
+  .nav li.has-sub > a::after{transition:.2s} /* 화살표 회전 부드럽게 */
+
+  /* 모바일에서도 submenu를 쓰되 기본은 숨김 */
+  .nav li.has-sub .submenu{
+    display:none;
+    position:static;
+    transform:none;
+    opacity:1;
+    pointer-events:auto;
+    box-shadow:none;
+    border:none;
+    background:transparent;
+    min-width:0;
+    padding:0 0 10px 0;
+  }
+  .nav li.has-sub.open .submenu{display:block}
+  .nav li.has-sub.open > a::after{transform:rotate(180deg)}
+
+  /* 서브메뉴 항목은 들여쓰기 */
+  .submenu a{
+    padding:12px 18px 12px 34px;
+    font-size:15px;
+    font-weight:800;
+  }
+}
