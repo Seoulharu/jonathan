@@ -178,6 +178,7 @@ footer{background:#222;color:#aaa;padding:60px 0;font-size:14px}
   display:grid;grid-template-columns:1fr 1fr;gap:40px;
   align-items:start;
 }
+.footer-content--single{grid-template-columns:1fr;}
 .footer-info h3{color:#fff;margin-bottom:18px;font-size:20px}
 .info-row{margin-bottom:14px}
 .map-box{
@@ -410,3 +411,20 @@ footer{background:#222;color:#aaa;padding:60px 0;font-size:14px}
   .nav li.has-sub .submenu{display:none}
   .nav li.has-sub.open .submenu{display:block}
 }
+
+
+/* 카드 그리드: 기본 4열 → 화면 줄면 2열 → 모바일 1열 */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 1024px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .card-grid { grid-template-columns: 1fr; }
+}
+
