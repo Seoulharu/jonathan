@@ -7,13 +7,35 @@
   const dim = document.querySelector(".nav-dim");
   const toggle = document.querySelector(".menu-toggle");
 
+
+  // 모바일에서 배경 스크롤 잠금 (iOS 포함)
+  let _scrollY = 0;
+  function lockScroll() {
+    _scrollY = window.scrollY || window.pageYOffset || 0;
+    document.body.classList.add("nav-open");
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${_scrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+  }
+  function unlockScroll() {
+    if (!document.body.classList.contains("nav-open")) return;
+    document.body.classList.remove("nav-open");
+    const y = _scrollY;
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    document.body.style.width = "";
+    window.scrollTo(0, y);
+  }
   function openNav() {
     if (!nav || !dim || !toggle) return;
     nav.classList.add("open");
     dim.classList.add("show");
     toggle.setAttribute("aria-expanded", "true");
-    document.documentElement.style.overflow = "hidden";
-    document.body.style.overflow = "hidden";
+    lockScroll();
   }
 
   function closeNav() {
@@ -21,8 +43,10 @@
     nav.classList.remove("open");
     dim.classList.remove("show");
     toggle.setAttribute("aria-expanded", "false");
-    document.documentElement.style.overflow = "";
-    document.body.style.overflow = "";
+
+    // 펼쳐진 서브메뉴도 정리
+    nav.querySelectorAll(".gnb > li.open").forEach((li) => li.classList.remove("open"));
+    unlockScroll();
   }
 
   function isMobile() {
@@ -71,9 +95,16 @@
     });
   }
 
-  // 스크롤 시 헤더 약간 더 진하게(벤치마킹 느낌)
+  
+  // PC로 전환될 때(가로로 넓어질 때) 모바일 메뉴 강제 닫기
+  window.addEventListener("resize", () => {
+    if (!isMobile()) closeNav();
+  });
+
+// 스크롤 시 헤더 약간 더 진하게(벤치마킹 느낌)
   function onScroll() {
     if (!header) return;
+    if (document.body.classList.contains("nav-open")) return;
     if (window.scrollY > 8) header.style.background = "rgba(255,255,255,.97)";
     else header.style.background = "rgba(255,255,255,.92)";
   }
