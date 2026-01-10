@@ -1,82 +1,120 @@
-(function(){
-  const body = document.body;
-  const nav = document.querySelector('nav.site-nav');
-  const dim = document.querySelector('.nav-dim');
-  const toggle = document.querySelector('.menu-toggle');
-  if(!nav || !toggle) return;
+/* 서울하루치과 - 벤치마킹 스타일 v10 */
+(function () {
+  "use strict";
 
-  function setExpanded(open){
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  const header = document.querySelector(".site-header");
+  const nav = document.querySelector(".site-nav");
+  const dim = document.querySelector(".nav-dim");
+  const toggle = document.querySelector(".menu-toggle");
+
+  function openNav() {
+    if (!nav || !dim || !toggle) return;
+    nav.classList.add("open");
+    dim.classList.add("show");
+    toggle.setAttribute("aria-expanded", "true");
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
   }
 
-  function closeNav(){
-    nav.classList.remove('open');
-    dim?.classList.remove('show');
-    body.classList.remove('nav-open');
-    setExpanded(false);
-  }
-  function openNav(){
-    nav.classList.add('open');
-    dim?.classList.add('show');
-    body.classList.add('nav-open');
-    setExpanded(true);
+  function closeNav() {
+    if (!nav || !dim || !toggle) return;
+    nav.classList.remove("open");
+    dim.classList.remove("show");
+    toggle.setAttribute("aria-expanded", "false");
+    document.documentElement.style.overflow = "";
+    document.body.style.overflow = "";
   }
 
-  // Init (bfcache 대응)
-  closeNav();
-  window.addEventListener('pageshow', closeNav);
-  window.addEventListener('resize', ()=>{
-    // PC로 전환 시 오버레이 정리
-    if(window.matchMedia('(min-width:981px)').matches) closeNav();
+  function isMobile() {
+    return window.matchMedia("(max-width: 980px)").matches;
+  }
+
+  // 햄버거 열고/닫기: 클릭으로만 동작 (스와이프 없음)
+  if (toggle && nav && dim) {
+    toggle.addEventListener("click", () => {
+      if (nav.classList.contains("open")) closeNav();
+      else openNav();
+    });
+    dim.addEventListener("click", closeNav);
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeNav();
+    });
+  }
+
+  // 모바일에서 드롭다운 토글 (상단 링크 클릭 시 펼침/닫힘)
+  const hasSub = document.querySelectorAll(".gnb > li.has-sub");
+  hasSub.forEach((li) => {
+    const a = li.querySelector(":scope > a");
+    if (!a) return;
+
+    a.addEventListener("click", (e) => {
+      if (!isMobile()) return; // PC는 hover
+      // 모바일: 상단을 누르면 펼치기/접기
+      e.preventDefault();
+      li.classList.toggle("open");
+    });
   });
 
-  toggle.addEventListener('click', (e)=>{
-    e.preventDefault();
-    if(nav.classList.contains('open')) closeNav();
-    else openNav();
-  });
+  // 모바일: 메뉴 안에서 실제 링크 클릭하면 닫기 (상단 토글 링크 제외)
+  if (nav) {
+    nav.addEventListener("click", (e) => {
+      const link = e.target.closest("a");
+      if (!link) return;
+      if (!isMobile()) return;
 
-  dim?.addEventListener('click', closeNav);
-  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeNav(); });
+      const parentLi = link.closest("li.has-sub");
+      // 상단 토글 링크면 닫지 않음(토글만)
+      if (parentLi && parentLi.querySelector(":scope > a") === link) return;
 
-  // 모바일에서 링크 클릭 시 닫기 (submenu는 항상 펼쳐짐)
-  nav.addEventListener('click', (e)=>{
-    const a = e.target.closest('a');
-    if(!a) return;
-    if(window.matchMedia('(max-width:980px)').matches){
+      // 실제 이동 링크면 닫기
       closeNav();
-    }
-  });
-
-  // Reveal on scroll
-  const revealEls = document.querySelectorAll('.reveal');
-  if('IntersectionObserver' in window && revealEls.length){
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(en=>{
-        if(en.isIntersecting){
-          en.target.classList.add('is-visible');
-          io.unobserve(en.target);
-        }
-      });
-    }, {threshold:0.15});
-    revealEls.forEach(el=>io.observe(el));
-  }else{
-    revealEls.forEach(el=>el.classList.add('is-visible'));
+    });
   }
 
-  // Doctor slider (index only)
-  const slides = Array.from(document.querySelectorAll('.doctor-slide'));
-  if(slides.length){
-    let idx = 0;
-    const show = (i)=> slides.forEach((s,k)=>s.classList.toggle('active', k===i));
-    document.querySelector('[data-doctor-prev]')?.addEventListener('click', ()=>{
-      idx = (idx - 1 + slides.length) % slides.length;
-      show(idx);
+  // 스크롤 시 헤더 약간 더 진하게(벤치마킹 느낌)
+  function onScroll() {
+    if (!header) return;
+    if (window.scrollY > 8) header.style.background = "rgba(255,255,255,.97)";
+    else header.style.background = "rgba(255,255,255,.92)";
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  
+  // Reveal (IntersectionObserver) - .reveal 요소는 스크롤 시 등장
+  const revealEls = document.querySelectorAll(".reveal");
+  if (revealEls.length) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("is-visible");
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+  }
+
+// AOS (스크롤 애니메이션) - 있으면 자동 적용
+  if (window.AOS && typeof window.AOS.init === "function") {
+    window.AOS.init({
+      once: true,
+      duration: 700,
+      offset: 80,
+      easing: "ease-out"
     });
-    document.querySelector('[data-doctor-next]')?.addEventListener('click', ()=>{
-      idx = (idx + 1) % slides.length;
-      show(idx);
-    });
-    show(idx);
+  }
+
+  // Swiper hero (index에만 있을 수도 있음)
+  if (window.Swiper) {
+    const el = document.querySelector(".hero-swiper");
+    if (el) {
+      // eslint-disable-next-line no-new
+      new window.Swiper(el, {
+        loop: true,
+        speed: 900,
+        effect: "fade",
+        fadeEffect: { crossFade: true },
+        autoplay: { delay: 4500, disableOnInteraction: false },
+        pagination: { el: ".swiper-pagination", clickable: true }
+      });
+    }
   }
 })();
