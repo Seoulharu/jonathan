@@ -1,129 +1,133 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>서울하루치과 | 임플란트</title>
-
-  <link rel="stylesheet" href="../../assets/css/html5_reset.css">
-  <link rel="stylesheet" href="../../assets/css/font.css">
-  <link rel="stylesheet" href="../../assets/css/common.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>임플란트 | 서울하루치과</title>
+  <link rel="stylesheet" href="../../assets/vendor/aos/aos.css">
   <link rel="stylesheet" href="../../assets/css/site.css">
 </head>
 <body>
-<header id="header">
+<header class="site-header">
   <div class="container header-inner">
-    <a class="logo" href="../../treatments/index.html" aria-label="서울하루치과 홈">
+    <a class="brand" href="../../index.html">
       <img src="../../assets/images/logo_mark.png" alt="서울하루치과 로고">
-      <span>서울하루치과</span>
+      <span class="brand-text">
+        <strong>서울하루치과</strong>
+        <small>SEOUL HARU DENTAL</small>
+      </span>
     </a>
 
-    <button class="menu-toggle" type="button" aria-label="메뉴 열기" onclick="toggleMenu()">☰</button>
+    <button class="menu-toggle" type="button" aria-label="메뉴" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
 
-    <nav class="nav" id="nav-menu" aria-label="메인 메뉴">
-      <div class="nav-top">
-        <button class="close-btn" type="button" aria-label="메뉴 닫기" onclick="closeMenu()">✕</button>
-      </div>
-      <ul>
-        <li><a href="../../treatments/index.html">홈</a></li>
-        <li><a href="../../introduce/introduce.html">병원소개</a></li>
-        <li><a href="../../introduce/doctor.html">의료진</a></li>
-        <li><a href="../../treatments/implants/implant.html">임플란트</a></li>
-        <li><a href="../../treatments/tooth/tooth.html">보존·충치</a></li>
-        <li><a href="../../treatments/beauty/beauty.html">심미·미백</a></li>
-        <li><a href="../../special/special.html">서울하루의 특별함</a></li>
-        <li><a href="../../introduce/price.html">비용안내</a></li>
-        <li><a href="../../introduce/contact.html">오시는길</a></li>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <ul class="gnb">
+        <li class="has-sub">
+          <a href="../../introduce/introduce.html">서울하루치과</a>
+          <ul class="sub">
+            <li><a href="../../introduce/introduce.html">병원소개</a></li>
+            <li><a href="../../introduce/doctor.html">의료진</a></li>
+            <li><a href="../../introduce/interior.html">내부</a></li>
+            <li><a href="../../introduce/price.html">비용</a></li>
+            <li><a href="../../introduce/contact.html">오시는길</a></li>
+          </ul>
+        </li>
+        <li><a href="../../special/special.html">특별함</a></li>
+        <li class="has-sub">
+          <a href="../../treatments/index.html">진료안내</a>
+          <ul class="sub">
+            <li><a href="../../treatments/implants/implant.html">임플란트</a></li>
+            <li><a href="../../treatments/tooth/tooth.html">보존/충치</a></li>
+            <li><a href="../../treatments/beauty/beauty.html">심미/미백</a></li>
+            <li><a href="../../introduce/price.html">비용</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </div>
+  <div class="nav-dim" aria-hidden="true"></div>
 </header>
-<main>
-  <section class="page-hero">
-    <img src="../../assets/images/hero_implant.jpg" alt="">
-    <div class="container">
+<main class="page page">
+  <section class="page-hero" style="background-image:url('../../assets/images/hero_implant.jpg')">
+    <div class="container inner">
       <h1>임플란트</h1>
-      <p class="breadcrumb">홈 · 임플란트</p>
+      <p>정밀 진단과 맞춤 계획을 기반으로, 안전하게 진행합니다.</p>
     </div>
   </section>
+
   
-<section class="section">
-  <div class="container">
-    <p class="kicker">임플란트</p>
-    <h2 class="h2">진단 → 계획 → 수술 → 사후관리</h2>
-    <div class="grid" style="grid-template-columns:repeat(4, 1fr);">
-      <div class="card">
-        <img class="card-img sm" src="../../assets/images/implant_point_diagnosis.jpg" alt="정밀 진단">
-        <div class="pad"><strong>정밀 진단</strong><div class="muted">상태를 먼저 확인</div></div>
-      </div>
-      <div class="card">
-        <img class="card-img sm" src="../../assets/images/implant_point_plan.jpg" alt="치료 계획">
-        <div class="pad"><strong>치료 계획</strong><div class="muted">개인 맞춤 설계</div></div>
-      </div>
-      <div class="card">
-        <img class="card-img sm" src="../../assets/images/implant_point_sterilization.jpg" alt="멸균·위생">
-        <div class="pad"><strong>멸균·위생</strong><div class="muted">감염관리 우선</div></div>
-      </div>
-      <div class="card">
-        <img class="card-img sm" src="../../assets/images/implant_point_followup.jpg" alt="사후관리">
-        <div class="pad"><strong>사후관리</strong><div class="muted">유지·점검</div></div>
-      </div>
+<section class="section container reveal">
+  <div class="section-head">
+    <h2>임플란트가 필요한 경우</h2>
+    <p class="muted">아래 항목이 해당된다면, 먼저 진단부터 진행하는 것이 좋습니다.</p>
+  </div>
+  <ul>
+    <li>치아가 상실되었거나, 보존이 어려운 경우</li>
+    <li>씹을 때 불편함이 계속되는 경우</li>
+    <li>틀니가 불편하거나 고정력이 필요한 경우</li>
+    <li>주변 치아를 최대한 보존하고 싶은 경우</li>
+  </ul>
+</section>
+
+<section class="section container reveal">
+  <div class="section-head">
+    <h2>임플란트 포인트</h2>
+    <p class="muted">아이콘 삭제 → 이미지 카드</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-media"><img loading="lazy" src="../../assets/images/implant_point_diagnosis.jpg" alt="정밀진단"></div>
+      <div class="card-body"><h3>정밀 진단</h3><p>상태를 정확히 보고 계획합니다.</p></div>
+    </div>
+    <div class="card">
+      <div class="card-media"><img loading="lazy" src="../../assets/images/implant_point_plan.jpg" alt="맞춤 계획"></div>
+      <div class="card-body"><h3>맞춤 계획</h3><p>개인 상태에 맞춘 치료 설계</p></div>
+    </div>
+    <div class="card">
+      <div class="card-media"><img loading="lazy" src="../../assets/images/implant_point_sterilization.jpg" alt="멸균감염관리"></div>
+      <div class="card-body"><h3>멸균·감염관리</h3><p>기본을 가장 엄격하게</p></div>
+    </div>
+    <div class="card">
+      <div class="card-media"><img loading="lazy" src="../../assets/images/implant_point_followup.jpg" alt="사후관리"></div>
+      <div class="card-body"><h3>사후관리</h3><p>치료 이후까지 안내합니다.</p></div>
     </div>
   </div>
 </section>
 
-<section class="section tight" style="background:var(--muted);">
-  <div class="container">
-    <p class="kicker">진료 환경</p>
-    <h2 class="h2">안심할 수 있는 흐름</h2>
-    <div class="grid" style="grid-template-columns:repeat(3, 1fr);">
-      <div class="card"><img class="card-img" src="../../assets/images/implant_env_01.jpg" alt="진료환경 1"></div>
-      <div class="card"><img class="card-img" src="../../assets/images/implant_env_02.jpg" alt="진료환경 2"></div>
-      <div class="card"><img class="card-img" src="../../assets/images/implant_env_03.jpg" alt="진료환경 3"></div>
-    </div>
-    <div style="margin-top:16px;">
-      <a class="btn" href="../../introduce/contact.html">상담·예약 문의</a>
-    </div>
+<section class="section container reveal">
+  <div class="section-head">
+    <h2>치료 환경</h2>
+    <p class="muted">이미지로 공간 분위기를 보여드립니다.</p>
+  </div>
+  <div class="img-grid">
+    <div class="img-tile"><img loading="lazy" src="../../assets/images/implant_env_01.jpg" alt="치료 환경 1"></div>
+    <div class="img-tile"><img loading="lazy" src="../../assets/images/implant_env_02.jpg" alt="치료 환경 2"></div>
+    <div class="img-tile"><img loading="lazy" src="../../assets/images/implant_env_03.jpg" alt="치료 환경 3"></div>
   </div>
 </section>
 
 </main>
-<footer class="footer">
-  <div class="container">
-    <div class="cols">
-      <div>
-        <strong style="font-size:18px;">서울하루치과</strong><br>
-        <small>
-          주소: (여기에 주소 입력)<br>
-          전화: 000-0000-0000<br>
-          진료시간: (여기에 시간 입력)
-        </small>
-      </div>
-      <div class="grid" style="grid-template-columns:1fr 1fr; gap:12px;">
-        <div class="card" style="background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.08);">
-          <img class="card-img sm" src="../../assets/images/info_location.jpg" alt="위치 안내">
-          <div class="pad"><strong>위치</strong><div class="muted" style="color:#cdd7df;">주차/건물 안내</div></div>
-        </div>
-        <div class="card" style="background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.08);">
-          <img class="card-img sm" src="../../assets/images/info_hours.jpg" alt="진료시간">
-          <div class="pad"><strong>진료시간</strong><div class="muted" style="color:#cdd7df;">야간/주말 안내</div></div>
-        </div>
-        <div class="card" style="background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.08);">
-          <img class="card-img sm" src="../../assets/images/info_call.jpg" alt="전화 안내">
-          <div class="pad"><strong>전화</strong><div class="muted" style="color:#cdd7df;">예약/문의</div></div>
-        </div>
-        <div class="card" style="background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.08);">
-          <img class="card-img sm" src="../../assets/images/info_directions.jpg" alt="길찾기">
-          <div class="pad"><strong>길찾기</strong><div class="muted" style="color:#cdd7df;">지도 연결</div></div>
-        </div>
-      </div>
-    </div>
 
-    <div style="margin-top:18px; opacity:.78;">
-      <small>© Seoul Haru Dental Clinic. All rights reserved.</small>
+<footer>
+  <div class="container footer-grid">
+    <div class="footer-box">
+      <strong>서울하루치과</strong>
+      <p>주소: (여기에 주소 입력)</p>
+      <p>전화: <a href="tel:000-0000-0000">000-0000-0000</a></p>
+    </div>
+    <div class="footer-box">
+      <strong>진료시간</strong>
+      <p>평일: (예) 09:30 - 18:30</p>
+      <p>토요일: (예) 09:30 - 13:30</p>
+      <p>점심: (예) 13:00 - 14:00</p>
     </div>
   </div>
 </footer>
-<script src="../../assets/js/site.js"></script>
+
+  <script src="../../assets/vendor/aos/aos.js"></script>
+  <script src="../../assets/js/site.js"></script>
 </body>
 </html>
