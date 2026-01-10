@@ -374,3 +374,15 @@ html, body { overflow-x: hidden; }
 .content-list { list-style: none; padding-left: 0; margin: 14px 0 0; }
 .content-list li { position: relative; padding-left: 16px; margin: 8px 0; color: var(--ink); }
 .content-list li::before { content: "•"; position: absolute; left: 0; top: 0; color: var(--muted); }
+
+
+/* ===== v5 header guard: 헤더 메뉴에 점(불릿) 절대 안 나오게 ===== */
+.site-header nav ul{list-style:none !important; padding:0; margin:0;}
+.site-header nav li::before{content:none !important;}
+
+/* ===== v6: 모바일 메뉴 심플 토글(햄버거로만 열고/닫기) 보강 ===== */
+@media (max-width:980px){
+  nav.site-nav{ z-index:60; } /* dim보다 위 */
+  .nav-dim{ z-index:55; }     /* 헤더(50) 위로 올려도 nav가 더 위 */
+  header.site-header{ z-index:70; } /* 헤더/메뉴 항상 최상단 */
+}
