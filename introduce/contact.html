@@ -1,98 +1,110 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
   <title>오시는길 | 서울하루치과</title>
-  <link rel="stylesheet" href="../assets/vendor/aos/aos.css">
+  <meta name="description" content="서울하루치과 오시는길. 교통/주차 안내와 지도 정보를 제공합니다.">
+  
   <link rel="stylesheet" href="../assets/css/site.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Maitree:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="../index.html">
-      <img src="../assets/images/logo_mark.png" alt="서울하루치과 로고">
-      <span class="brand-text">
-        <strong>서울하루치과</strong>
-        <small>SEOUL HARU DENTAL</small>
-      </span>
-    </a>
 
-    <button class="menu-toggle" type="button" aria-label="메뉴" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-
-    <nav class="site-nav" aria-label="주요 메뉴">
-      <ul class="gnb">
-        <li class="has-sub">
-          <a href="../introduce/introduce.html">서울하루치과</a>
-          <ul class="sub">
-            <li><a href="../introduce/introduce.html">병원소개</a></li>
-            <li><a href="../introduce/doctor.html">의료진</a></li>
-            <li><a href="../introduce/interior.html">내부</a></li>
-            <li><a href="../introduce/price.html">비용</a></li>
-            <li><a href="../introduce/contact.html">오시는길</a></li>
+<header>
+  <div class="inwrap">
+    <h1>
+      <a href="../index.html">
+        <img src="../assets/images/logo_mark.png" alt="서울하루치과 로고" id="logo">
+        <span class="logo-text">
+          <strong>서울하루치과</strong>
+          <small>SEOUL HARU DENTAL</small>
+        </span>
+      </a>
+    </h1>
+    
+    <nav>
+      <ul class="lnb">
+        <li>
+          <a href="introduce.html">서울하루치과 <span></span></a>
+          <ul>
+            <li><a href="introduce.html">병원소개</a></li>
+            <li><a href="doctor.html">의료진소개</a></li>
+            <li><a href="interior.html">진료공간</a></li>
+            <li><a href="price.html">비용안내</a></li>
+            <li><a href="contact.html">오시는길</a></li>
           </ul>
         </li>
-        <li><a href="../special/special.html">특별함</a></li>
-        <li class="has-sub">
-          <a href="../treatments/index.html">진료안내</a>
-          <ul class="sub">
-            <li><a href="../treatments/implants/implant.html">임플란트</a></li>
-            <li><a href="../treatments/tooth/tooth.html">보존/충치</a></li>
-            <li><a href="../treatments/beauty/beauty.html">심미/미백</a></li>
-            <li><a href="../introduce/price.html">비용</a></li>
-          </ul>
-        </li>
+        <li><a href="../special/special.html">특별함 <span></span></a><ul><li><a href="../special/special.html">특별함</a></li></ul></li>
+        <li><a href="../treatments/implants/implant.html">임플란트 <span></span></a><ul><li><a href="../treatments/implants/implant.html">임플란트</a></li></ul></li>
+        <li><a href="../treatments/tooth/tooth.html">보존/충치 <span></span></a><ul><li><a href="../treatments/tooth/tooth.html">보존/충치</a></li></ul></li>
+        <li><a href="../treatments/beauty/beauty.html">심미/미백 <span></span></a><ul><li><a href="../treatments/beauty/beauty.html">심미/미백</a></li></ul></li>
+      </ul>
+      <ul class="info_wrap">
+        <li><a href="tel:000-0000-0000">000-0000-0000</a></li>
+        <li>서울시 OO구 OO로 OO</li>
       </ul>
     </nav>
+    
+    <div class="menu_wrap">
+      <a id="menu_but" aria-label="메뉴 열기"><span></span><span></span><span></span></a>
+    </div>
   </div>
-  <div class="nav-dim" aria-hidden="true"></div>
 </header>
-<main class="page page">
-  <section class="page-hero" style="background-image:url('../assets/images/hero_contact.jpg')">
-    <div class="container inner">
-      <h1>오시는길</h1>
-      <p>교통/주차 안내와 지도 정보를 제공합니다.</p>
+
+<div class="nav-dim" aria-hidden="true"></div>
+
+<div class="sub_visual" style="background-image: url('../assets/images/hero_contact.jpg');">
+  <div class="inwrap">
+    <h2>오시는길</h2>
+    <p>교통/주차 안내와 지도 정보를 제공합니다.</p>
+  </div>
+</div>
+
+<div class="con_wrap">
+  <section class="section">
+    <div class="inwrap">
+      <div class="sub_tit">
+        <h3 data-aos="fade-up">교통/주차</h3>
+        <p data-aos="fade-up" data-aos-delay="100">읽기 쉬운 형태로 정리해두었습니다.</p>
+      </div>
+      
+      <ul class="content-list" data-aos="fade-up" data-aos-delay="200">
+        <li>지하철: (예) ○○역 ○번 출구 도보 ○분</li>
+        <li>버스: (예) ○○정류장 하차</li>
+        <li>주차: (예) 건물 내/제휴 주차 안내</li>
+      </ul>
+      
+      <div class="map-box" style="margin-top: 30px;" data-aos="fade-up" data-aos-delay="300">
+        <!-- 여기에 지도 iframe을 넣어주세요 -->
+        <div style="display: flex; align-items: center; justify-content: center; height: 100%; background: var(--card); color: var(--muted);">
+          지도 영역 (iframe 삽입)
+        </div>
+      </div>
     </div>
   </section>
-
-  
-<section class="section container reveal">
-  <div class="section-head">
-    <h2>교통/주차</h2>
-    <p class="muted">읽기 쉬운 형태로 정리해두었습니다.</p>
-  </div>
-  <ul>
-    <li>지하철: (예) ○○역 ○번 출구 도보 ○분</li>
-    <li>버스: (예) ○○정류장 하차</li>
-    <li>주차: (예) 건물 내/제휴 주차 안내</li>
-  </ul>
-
-  <div class="map-box" style="margin-top:16px">
-    <!-- 여기에 지도 iframe을 넣어주세요 -->
-  </div>
-</section>
-
-</main>
+</div>
 
 <footer>
-  <div class="container footer-grid">
-    <div class="footer-box">
-      <strong>서울하루치과</strong>
-      <p>주소: (여기에 주소 입력)</p>
-      <p>전화: <a href="tel:000-0000-0000">000-0000-0000</a></p>
+  <div class="inwrap">
+    <div class="info_wrap">
+      <h4>오시는 길</h4>
+      <p>서울시 OO구 OO로 OO (상세주소)</p>
+      <h5>000-0000-0000</h5>
     </div>
-    <div class="footer-box">
-      <strong>진료시간</strong>
-      <p>평일: (예) 09:30 - 18:30</p>
-      <p>토요일: (예) 09:30 - 13:30</p>
-      <p>점심: (예) 13:00 - 14:00</p>
+    <div class="info_wrap">
+      <h4>진료 시간</h4>
+      <p>평일 09:30 ~ 18:30<br>토요일 09:30 ~ 14:00<br>점심시간 13:00 ~ 14:00<br><span style="color: var(--main-color);">일요일·공휴일 휴진</span></p>
+    </div>
+    <div class="copy">
+      <span>서울하루치과</span> <span>대표자명 : OOO</span>
+      Copyright © SEOUL HARU DENTAL CLINIC. All rights reserved.
     </div>
   </div>
 </footer>
 
-  <script src="../assets/vendor/aos/aos.js"></script>
-  <script src="../assets/js/site.js"></script>
+<script src="../assets/js/site.js"></script>
 </body>
 </html>

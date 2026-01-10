@@ -1,151 +1,310 @@
-/* 서울하루치과 - 벤치마킹 스타일 v10 */
-(function () {
+/* =========================================================
+   서울하루치과 - 진솔한치과 벤치마킹 JavaScript
+   - 모바일 햄버거 메뉴 (오프캔버스)
+   - PC 드롭다운 안정화
+   - 스크롤 애니메이션
+   ========================================================= */
+
+(function() {
   "use strict";
 
-  const header = document.querySelector(".site-header");
-  const nav = document.querySelector(".site-nav");
-  const dim = document.querySelector(".nav-dim");
-  const toggle = document.querySelector(".menu-toggle");
+  // DOM Elements
+  const header = document.querySelector('header');
+  const menuBut = document.getElementById('menu_but');
+  const nav = document.querySelector('header nav');
+  const navDim = document.querySelector('.nav-dim');
+  const lnbItems = document.querySelectorAll('header nav .lnb > li');
 
+  // Variables
+  let scrollY = 0;
+  let isNavOpen = false;
 
-  // 모바일에서 배경 스크롤 잠금 (iOS 포함)
-  let _scrollY = 0;
-  function lockScroll() {
-    _scrollY = window.scrollY || window.pageYOffset || 0;
-    document.body.classList.add("nav-open");
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${_scrollY}px`;
-    document.body.style.left = "0";
-    document.body.style.right = "0";
-    document.body.style.width = "100%";
-  }
-  function unlockScroll() {
-    if (!document.body.classList.contains("nav-open")) return;
-    document.body.classList.remove("nav-open");
-    const y = _scrollY;
-    document.body.style.position = "";
-    document.body.style.top = "";
-    document.body.style.left = "";
-    document.body.style.right = "";
-    document.body.style.width = "";
-    window.scrollTo(0, y);
-  }
+  // =========================================================
+  // MOBILE MENU - 오프캔버스
+  // =========================================================
+  
   function openNav() {
-    if (!nav || !dim || !toggle) return;
-    nav.classList.add("open");
-    dim.classList.add("show");
-    toggle.setAttribute("aria-expanded", "true");
-    lockScroll();
+    if (isNavOpen) return;
+    isNavOpen = true;
+    
+    // 현재 스크롤 위치 저장
+    scrollY = window.scrollY || window.pageYOffset || 0;
+    
+    // 메뉴 열기
+    header.classList.add('open');
+    navDim.classList.add('show');
+    
+    // body 스크롤 잠금
+    document.body.classList.add('nav-open');
+    document.body.style.top = `-${scrollY}px`;
   }
 
   function closeNav() {
-    if (!nav || !dim || !toggle) return;
-    nav.classList.remove("open");
-    dim.classList.remove("show");
-    toggle.setAttribute("aria-expanded", "false");
-
-    // 펼쳐진 서브메뉴도 정리
-    nav.querySelectorAll(".gnb > li.open").forEach((li) => li.classList.remove("open"));
-    unlockScroll();
+    if (!isNavOpen) return;
+    isNavOpen = false;
+    
+    // 메뉴 닫기
+    header.classList.remove('open');
+    navDim.classList.remove('show');
+    
+    // 서브메뉴 모두 닫기
+    lnbItems.forEach(item => item.classList.remove('active'));
+    
+    // body 스크롤 복원
+    document.body.classList.remove('nav-open');
+    document.body.style.top = '';
+    window.scrollTo(0, scrollY);
   }
 
-  function isMobile() {
-    return window.matchMedia("(max-width: 980px)").matches;
-  }
-
-  // 햄버거 열고/닫기: 클릭으로만 동작 (스와이프 없음)
-  if (toggle && nav && dim) {
-    toggle.addEventListener("click", () => {
-      if (nav.classList.contains("open")) closeNav();
-      else openNav();
-    });
-    dim.addEventListener("click", closeNav);
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeNav();
-    });
-  }
-
-  // 모바일에서 드롭다운 토글 (상단 링크 클릭 시 펼침/닫힘)
-  const hasSub = document.querySelectorAll(".gnb > li.has-sub");
-  hasSub.forEach((li) => {
-    const a = li.querySelector(":scope > a");
-    if (!a) return;
-
-    a.addEventListener("click", (e) => {
-      if (!isMobile()) return; // PC는 hover
-      // 모바일: 상단을 누르면 펼치기/접기
-      e.preventDefault();
-      li.classList.toggle("open");
-    });
-  });
-
-  // 모바일: 메뉴 안에서 실제 링크 클릭하면 닫기 (상단 토글 링크 제외)
-  if (nav) {
-    nav.addEventListener("click", (e) => {
-      const link = e.target.closest("a");
-      if (!link) return;
-      if (!isMobile()) return;
-
-      const parentLi = link.closest("li.has-sub");
-      // 상단 토글 링크면 닫지 않음(토글만)
-      if (parentLi && parentLi.querySelector(":scope > a") === link) return;
-
-      // 실제 이동 링크면 닫기
+  function toggleNav() {
+    if (isNavOpen) {
       closeNav();
-    });
-  }
-
-  
-  // PC로 전환될 때(가로로 넓어질 때) 모바일 메뉴 강제 닫기
-  window.addEventListener("resize", () => {
-    if (!isMobile()) closeNav();
-  });
-
-// 스크롤 시 헤더 약간 더 진하게(벤치마킹 느낌)
-  function onScroll() {
-    if (!header) return;
-    if (document.body.classList.contains("nav-open")) return;
-    if (window.scrollY > 8) header.style.background = "rgba(255,255,255,.97)";
-    else header.style.background = "rgba(255,255,255,.92)";
-  }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-
-  
-  // Reveal (IntersectionObserver) - .reveal 요소는 스크롤 시 등장
-  const revealEls = document.querySelectorAll(".reveal");
-  if (revealEls.length) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add("is-visible");
-      });
-    }, { threshold: 0.12 });
-    revealEls.forEach(el => io.observe(el));
-  }
-
-// AOS (스크롤 애니메이션) - 있으면 자동 적용
-  if (window.AOS && typeof window.AOS.init === "function") {
-    window.AOS.init({
-      once: true,
-      duration: 700,
-      offset: 80,
-      easing: "ease-out"
-    });
-  }
-
-  // Swiper hero (index에만 있을 수도 있음)
-  if (window.Swiper) {
-    const el = document.querySelector(".hero-swiper");
-    if (el) {
-      // eslint-disable-next-line no-new
-      new window.Swiper(el, {
-        loop: true,
-        speed: 900,
-        effect: "fade",
-        fadeEffect: { crossFade: true },
-        autoplay: { delay: 4500, disableOnInteraction: false },
-        pagination: { el: ".swiper-pagination", clickable: true }
-      });
+    } else {
+      openNav();
     }
   }
+
+  // 햄버거 버튼 클릭
+  if (menuBut) {
+    menuBut.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleNav();
+    });
+  }
+
+  // 딤 클릭시 닫기
+  if (navDim) {
+    navDim.addEventListener('click', closeNav);
+  }
+
+  // ESC 키로 닫기
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && isNavOpen) {
+      closeNav();
+    }
+  });
+
+  // =========================================================
+  // MOBILE SUBMENU TOGGLE
+  // =========================================================
+  
+  function isMobile() {
+    return window.innerWidth <= 980;
+  }
+
+  lnbItems.forEach(function(item) {
+    const link = item.querySelector(':scope > a');
+    const subMenu = item.querySelector(':scope > ul');
+    
+    if (link && subMenu) {
+      link.addEventListener('click', function(e) {
+        if (isMobile()) {
+          e.preventDefault();
+          
+          // 다른 메뉴 닫기
+          lnbItems.forEach(function(otherItem) {
+            if (otherItem !== item) {
+              otherItem.classList.remove('active');
+            }
+          });
+          
+          // 현재 메뉴 토글
+          item.classList.toggle('active');
+        }
+      });
+    }
+  });
+
+  // 서브메뉴 링크 클릭시 메뉴 닫기 (실제 이동)
+  const subLinks = document.querySelectorAll('header nav .lnb > li > ul > li > a');
+  subLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (isMobile()) {
+        // 약간의 딜레이 후 닫기 (링크 이동 전)
+        setTimeout(closeNav, 100);
+      }
+    });
+  });
+
+  // 창 크기 변경시 모바일 메뉴 닫기
+  window.addEventListener('resize', function() {
+    if (!isMobile() && isNavOpen) {
+      closeNav();
+    }
+  });
+
+  // =========================================================
+  // HEADER SCROLL EFFECT
+  // =========================================================
+  
+  function handleScroll() {
+    if (isNavOpen) return;
+    
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll(); // 초기 실행
+
+  // =========================================================
+  // SWIPER INITIALIZATION (메인 히어로)
+  // =========================================================
+  
+  function initSwiper() {
+    const swiperEl = document.querySelector('.main_visual .swiper');
+    if (!swiperEl || typeof Swiper === 'undefined') return;
+
+    new Swiper(swiperEl, {
+      loop: true,
+      speed: 1000,
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      autoplay: {
+        delay: 6000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.main_visual .swiper-pagination',
+        type: 'fraction',
+      },
+      navigation: {
+        nextEl: '.main_visual .swiper-button-next',
+        prevEl: '.main_visual .swiper-button-prev',
+      },
+      scrollbar: {
+        el: '.main_visual .swiper-scrollbar',
+      },
+    });
+  }
+
+  // Swiper 로드 대기 후 초기화
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSwiper);
+  } else {
+    initSwiper();
+  }
+
+  // =========================================================
+  // AOS (Animate On Scroll) - 간단 구현
+  // =========================================================
+  
+  function initAOS() {
+    const aosElements = document.querySelectorAll('[data-aos]');
+    if (!aosElements.length) return;
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          const delay = entry.target.getAttribute('data-aos-delay') || 0;
+          setTimeout(function() {
+            entry.target.classList.add('aos-animate');
+          }, parseInt(delay));
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    aosElements.forEach(function(el) {
+      observer.observe(el);
+    });
+  }
+
+  // AOS 초기화
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAOS);
+  } else {
+    initAOS();
+  }
+
+  // =========================================================
+  // REVEAL ANIMATION (IntersectionObserver)
+  // =========================================================
+  
+  function initReveal() {
+    const revealElements = document.querySelectorAll('.reveal');
+    if (!revealElements.length) return;
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, {
+      threshold: 0.12
+    });
+
+    revealElements.forEach(function(el) {
+      observer.observe(el);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initReveal);
+  } else {
+    initReveal();
+  }
+
+  // =========================================================
+  // SMOOTH SCROLL (앵커 링크)
+  // =========================================================
+  
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        
+        const headerHeight = header ? header.offsetHeight : 80;
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+
+        // 모바일 메뉴 닫기
+        if (isNavOpen) {
+          closeNav();
+        }
+      }
+    });
+  });
+
+  // =========================================================
+  // PARALLAX EFFECT (Fix BG)
+  // =========================================================
+  
+  function initParallax() {
+    const fixBgElements = document.querySelectorAll('.fix_bg');
+    if (!fixBgElements.length || window.innerWidth < 1024) return;
+
+    window.addEventListener('scroll', function() {
+      const scrolled = window.pageYOffset;
+      
+      fixBgElements.forEach(function(el) {
+        const rate = scrolled * -0.3;
+        el.style.backgroundPositionY = rate + 'px';
+      });
+    }, { passive: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initParallax);
+  } else {
+    initParallax();
+  }
+
 })();
