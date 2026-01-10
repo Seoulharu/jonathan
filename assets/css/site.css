@@ -94,16 +94,45 @@ nav.site-nav a:hover{ color:var(--brand) }
 
 /* Submenu */
 .site-nav .has-sub{position:relative}
-.site-nav .submenu{
+.site-nav /* ===== Desktop dropdown (benchmark-like) ===== */
+.site-nav .gnb{display:flex; align-items:center; gap:18px;}
+.site-nav .gnb > li{position:relative;}
+.site-nav .gnb > li > a{display:inline-flex; align-items:center; gap:8px; padding:10px 10px; border-radius:12px;}
+.site-nav .gnb > li > a:hover{background:var(--soft);}
+
+.site-nav .has-sub > a::after{
+  content:""; width:6px; height:6px;
+  border-right:2px solid currentColor; border-bottom:2px solid currentColor;
+  transform:rotate(45deg); opacity:.55; margin-left:2px;
+}
+
+/* hover bridge: 부모 메뉴와 서브메뉴 사이 '틈' 때문에 사라지는 문제 방지 */
+.site-nav .has-sub::after{
+  content:""; position:absolute; left:0; top:100%;
+  width:100%; height:12px;
+}
+
+.submenu{
   position:absolute; top:calc(100% + 10px); left:0;
-  min-width:190px;
+  min-width:210px;
   background:#fff; border:1px solid var(--line);
   border-radius:14px; box-shadow:var(--shadow2);
-  padding:8px; display:none;
+  padding:8px;
+  opacity:0; visibility:hidden;
+  transform:translateY(6px);
+  pointer-events:none;
 }
-.site-nav .submenu a{display:block;padding:10px 10px;border-radius:10px;font-weight:700}
-.site-nav .submenu a:hover{background:var(--soft)}
-.site-nav .has-sub:hover .submenu{display:block}
+.site-nav .submenu a{
+  display:block; padding:10px 10px;
+  border-radius:10px; font-weight:700;
+}
+.site-nav .submenu a:hover{background:var(--soft);}
+.site-nav .has-sub:hover .submenu,
+.site-nav .has-sub:focus-within .submenu{
+  opacity:1; visibility:visible;
+  transform:translateY(0);
+  pointer-events:auto;
+}
 
 @media (max-width:980px){
   .menu-toggle{display:inline-flex}
@@ -114,7 +143,7 @@ nav.site-nav a:hover{ color:var(--brand) }
     transform:translateX(102%);
     transition:.25s;
     box-shadow:-12px 0 30px rgba(16,24,40,.12);
-    padding:78px 18px 18px;
+    padding:18px 18px 18px;
   }
   nav.site-nav.open{transform:translateX(0)}
   nav.site-nav ul{flex-direction:column;align-items:stretch;gap:6px}
@@ -133,6 +162,22 @@ nav.site-nav a:hover{ color:var(--brand) }
     display:none; z-index:40;
   }
   .nav-dim.show{display:block}
+
+  /* ===== Mobile: submenu always visible (simple) ===== */
+  .site-nav .has-sub::after{display:none;}
+  .submenu{
+    position:static;
+    opacity:1; visibility:visible; transform:none; pointer-events:auto;
+    display:block;
+    border:none; box-shadow:none;
+    padding:6px 0 0 12px;
+    min-width:auto;
+    margin:0;
+  }
+  .submenu a{padding:10px 10px; font-weight:700;}
+  .site-nav .gnb{flex-direction:column; gap:0;}
+  .site-nav .gnb > li > a{width:100%; justify-content:space-between;}
+
 }
 
 /* =========================
@@ -385,4 +430,12 @@ html, body { overflow-x: hidden; }
   nav.site-nav{ z-index:60; } /* dim보다 위 */
   .nav-dim{ z-index:55; }     /* 헤더(50) 위로 올려도 nav가 더 위 */
   header.site-header{ z-index:70; } /* 헤더/메뉴 항상 최상단 */
+}
+
+
+/* ===== v7 mobile menu: 단순/확실하게 (다른 페이지에서도 동일) ===== */
+@media (max-width:980px){
+  header.site-header{z-index:60;}
+  .nav-dim{z-index:70;}
+  nav.site-nav{z-index:80;}
 }
