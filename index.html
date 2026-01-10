@@ -19,7 +19,6 @@
 
     /* ===== Hero ===== */
     .hero {
-      padding:0;
       position:relative; min-height:72vh; display:flex; align-items:center;
       overflow:hidden; background:#0f172a;
     }
@@ -240,9 +239,9 @@
 
         <div class="grid-4">
           <a class="img-card reveal" href="treatments/implants/implant.html">
-            <img src="assets/images/treat_implant.jpg" alt="임플란트" loading="lazy" decoding="async">
+            <img src="assets/images/treat_implant.jpg" alt="임플란트">
             <div class="shade"></div>
-            <div class="content">
+            <div class="img-card-body">
               <span class="tag">IMPLANT</span>
               <h3>임플란트</h3>
               <p>진단 → 계획 → 사후관리 흐름으로 안내합니다.</p>
@@ -250,9 +249,9 @@
           </a>
 
           <a class="img-card reveal" style="transition-delay:.05s;" href="treatments/tooth/tooth.html">
-            <img src="assets/images/treat_tooth.jpg" alt="보존/충치" loading="lazy" decoding="async">
+            <img src="assets/images/treat_tooth.jpg" alt="보존/충치">
             <div class="shade"></div>
-            <div class="content">
+            <div class="img-card-body">
               <span class="tag">TOOTH</span>
               <h3>보존/충치</h3>
               <p>가능하면 남기는 치료를 먼저 고려합니다.</p>
@@ -260,9 +259,9 @@
           </a>
 
           <a class="img-card reveal" style="transition-delay:.10s;" href="treatments/beauty/beauty.html">
-            <img src="assets/images/treat_beauty.jpg" alt="심미/미백" loading="lazy" decoding="async">
+            <img src="assets/images/treat_beauty.jpg" alt="심미/미백">
             <div class="shade"></div>
-            <div class="content">
+            <div class="img-card-body">
               <span class="tag">AESTHETIC</span>
               <h3>심미/미백</h3>
               <p>자연스러운 결과를 기준으로 제안합니다.</p>
@@ -270,9 +269,9 @@
           </a>
 
           <a class="img-card reveal" style="transition-delay:.15s;" href="introduce/price.html">
-            <img src="assets/images/treat_price.jpg" alt="비용 안내" loading="lazy" decoding="async">
+            <img src="assets/images/treat_price.jpg" alt="비용 안내">
             <div class="shade"></div>
-            <div class="content">
+            <div class="img-card-body">
               <span class="tag">PRICE</span>
               <h3>비용 안내</h3>
               <p>치료 전, 기간·비용·대안을 먼저 안내합니다.</p>
@@ -306,11 +305,11 @@
 
           <div class="doctor-slider" id="doctorSlider">
             <div class="doctor-slide active">
-              <img src="assets/images/doctor_slide_01.jpg" alt="의료진 사진 1" loading="lazy" decoding="async">
+              <img src="assets/images/doctor_slide_01.jpg" alt="의료진 사진 1">
               <div class="doctor-caption">의료진 사진 1 (프로필/정면 추천)</div>
             </div>
             <div class="doctor-slide">
-              <img src="assets/images/doctor_slide_02.jpg" alt="의료진 사진 2" loading="lazy" decoding="async">
+              <img src="assets/images/doctor_slide_02.jpg" alt="의료진 사진 2">
               <div class="doctor-caption">의료진 사진 2 (진료 중 측면 추천)</div>
             </div>
           </div>
@@ -321,72 +320,61 @@
           </div>
         </div>
       </div>
-       <!-- 특별함(각 항목 이미지 포함) -->
-    <section class="section" id="special">
-      <div class="container">
-        <div class="section-title reveal">
-          <h2>서울하루치과의 특별함</h2>
-          <p>정밀진단·치료 전 안내·원칙·사후관리까지, 핵심만 먼저 보여드립니다.</p>
-        </div>
-
-        <div class="grid-4">
-          <div class="img-card reveal" style="cursor:default;">
-            <img src="assets/images/special_diagnosis.jpg" alt="정밀진단" loading="lazy" decoding="async">
-            <div class="shade"></div>
-            <div class="content">
-              <span class="tag">DIAGNOSIS</span>
-              <h3>정밀 진단</h3>
-              <p>필요한 검사는 정확히, 불필요한 검사는 줄입니다.</p>
-            </div>
-          </div>
-
-          <div class="img-card reveal" style="cursor:default; transition-delay:.05s;">
-            <img src="assets/images/special_explain.jpg" alt="치료 전 안내" loading="lazy" decoding="async">
-            <div class="shade"></div>
-            <div class="content">
-              <span class="tag">GUIDE</span>
-              <h3>치료 전 안내</h3>
-              <p>치료 과정과 비용을 먼저 설명하고 진행합니다.</p>
-            </div>
-          </div>
-
-          <div class="img-card reveal" style="cursor:default; transition-delay:.10s;">
-            <img src="assets/images/special_conservative.jpg" alt="과잉 없는 치료" loading="lazy" decoding="async">
-            <div class="shade"></div>
-            <div class="content">
-              <span class="tag">STANDARD</span>
-              <h3>과잉 없는 치료</h3>
-              <p>필요한 만큼만, 오래 쓰는 치료를 목표로 합니다.</p>
-            </div>
-          </div>
-
-          <div class="img-card reveal" style="cursor:default; transition-delay:.15s;">
-            <img src="assets/images/special_followup.jpg" alt="사후관리" loading="lazy" decoding="async">
-            <div class="shade"></div>
-            <div class="content">
-              <span class="tag">FOLLOW-UP</span>
-              <h3>사후관리</h3>
-              <p>치료 이후까지 관리가 이어지도록 안내합니다.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="btn-row reveal">
-          <a class="btn-main" href="special/special.html">특별함 자세히</a>
-        </div>
-      </div>
     </section>
 
-iv>
+    <!-- 특별함(각 항목 이미지 포함) -->
+<section class="section container reveal" id="special">
+  <div class="section-head">
+    <h2>서울하루치과의 특별함</h2>
+    <p class="muted">치료의 핵심 기준을, 처음 오신 분도 바로 이해할 수 있게 보여드립니다.</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <img src="assets/images/special_diagnosis.jpg" alt="정밀진단">
+      <div class="card-body">
+        <h3>정밀 진단</h3>
+        <p>필요한 검사는 정확히, 불필요한 검사는 줄입니다.</p>
+      </div>
+    </a>
+
+    <div class="card">
+      <img src="assets/images/special_explain.jpg" alt="치료 전 안내">
+      <div class="card-body">
+        <h3>치료 전 안내</h3>
+        <p>치료 과정과 비용을 먼저 설명하고 진행합니다.</p>
+      </div>
+    </a>
+
+    <div class="card">
+      <img src="assets/images/special_conservative.jpg" alt="과잉 없는 치료">
+      <div class="card-body">
+        <h3>과잉 없는 치료</h3>
+        <p>필요한 만큼만, 오래 쓰는 치료를 목표로 합니다.</p>
+      </div>
+    </a>
+
+    <div class="card">
+      <img src="assets/images/special_followup.jpg" alt="사후관리">
+      <div class="card-body">
+        <h3>사후관리</h3>
+        <p>치료 이후까지 관리가 이어지도록 안내합니다.</p>
+      </div>
+    </a>
+  </div>
+
+  <div class="section-actions">
+    <a class="btn" href="special/special.html">특별함 자세히</a>
+  </div>
 </section>
 
 
 <section class="section alt">
   <div class="container reveal">
     <a href="introduce/contact.html" class="img-card" style="min-height:240px;">
-      <img src="assets/images/mood_family_field.jpg" alt="편안한 일상" loading="lazy" decoding="async">
+      <img src="assets/images/mood_family_field.jpg" alt="편안한 일상">
       <div class="shade"></div>
-      <div class="content" style="min-height:240px;">
+      <div class="img-card-body" style="min-height:240px;">
         <span class="tag">OUR PROMISE</span>
         <h3>치료의 목표는 ‘일상으로 돌아가는 것’입니다</h3>
         <p>과잉 없이, 필요한 치료부터. 상담은 쉽게, 과정은 투명하게.</p>
@@ -405,9 +393,9 @@ iv>
         </div>
 
         <div class="gallery reveal">
-          <div class="g"><img src="assets/images/interior_01.jpg" alt="인테리어 1" loading="lazy" decoding="async"></div>
-          <div class="g"><img src="assets/images/interior_02.jpg" alt="인테리어 2" loading="lazy" decoding="async"></div>
-          <div class="g"><img src="assets/images/interior_03.jpg" alt="인테리어 3" loading="lazy" decoding="async"></div>
+          <div class="g"><img src="assets/images/interior_01.jpg" alt="인테리어 1"></div>
+          <div class="g"><img src="assets/images/interior_02.jpg" alt="인테리어 2"></div>
+          <div class="g"><img src="assets/images/interior_03.jpg" alt="인테리어 3"></div>
         </div>
 
         <div class="btn-row">
@@ -426,9 +414,9 @@ iv>
 
 <div class="reveal" style="margin:18px 0 22px;">
   <div class="img-card" style="min-height:220px;">
-    <img src="assets/images/mood_couple_warm.jpg" alt="편안한 분위기" loading="lazy" decoding="async">
+    <img src="assets/images/mood_couple_warm.jpg" alt="편안한 분위기">
     <div class="shade"></div>
-    <div class="content" style="min-height:220px;">
+    <div class="img-card-body" style="min-height:220px;">
       <span class="tag">WELCOME</span>
       <h3>처음 오셔도, 설명부터 천천히</h3>
       <p>현재 상태와 우선순위를 먼저 잡고 진행합니다.</p>
@@ -438,9 +426,9 @@ iv>
 
         <div class="grid-4">
           <div class="img-card reveal" style="min-height:140px;">
-            <img src="assets/images/info_location.jpg" alt="주소" loading="lazy" decoding="async">
+            <img src="assets/images/info_location.jpg" alt="주소">
             <div class="shade"></div>
-            <div class="content" style="min-height:140px;">
+            <div class="img-card-body" style="min-height:140px;">
               <span class="tag">주소</span>
               <h3>(여기에 주소)</h3>
               <p>주차/대중교통 안내는 오시는길에서 확인</p>
@@ -448,9 +436,9 @@ iv>
           </div>
 
           <div class="img-card reveal" style="min-height:140px; transition-delay:.05s;">
-            <img src="assets/images/info_hours.jpg" alt="진료시간" loading="lazy" decoding="async">
+            <img src="assets/images/info_hours.jpg" alt="진료시간">
             <div class="shade"></div>
-            <div class="content" style="min-height:140px;">
+            <div class="img-card-body" style="min-height:140px;">
               <span class="tag">진료시간</span>
               <h3>(예) 평일 10:00~19:00</h3>
               <p>(예) 토 10:00~14:00 / 일·공휴일 휴진</p>
@@ -458,9 +446,9 @@ iv>
           </div>
 
           <a class="img-card reveal" style="min-height:140px; transition-delay:.10s;" href="introduce/contact.html">
-            <img src="assets/images/info_directions.jpg" alt="오시는길" loading="lazy" decoding="async">
+            <img src="assets/images/info_directions.jpg" alt="오시는길">
             <div class="shade"></div>
-            <div class="content" style="min-height:140px;">
+            <div class="img-card-body" style="min-height:140px;">
               <span class="tag">오시는길</span>
               <h3>지도/주차/입구 안내</h3>
               <p>처음 방문이라면 꼭 확인해 주세요.</p>
@@ -468,9 +456,9 @@ iv>
           </a>
 
           <a class="img-card reveal" style="min-height:140px; transition-delay:.15s;" href="tel:01000000000">
-            <img src="assets/images/info_call.jpg" alt="전화문의" loading="lazy" decoding="async">
+            <img src="assets/images/info_call.jpg" alt="전화문의">
             <div class="shade"></div>
-            <div class="content" style="min-height:140px;">
+            <div class="img-card-body" style="min-height:140px;">
               <span class="tag">전화</span>
               <h3>(여기에 대표번호)</h3>
               <p>빠른 문의는 전화가 가장 편합니다.</p>
@@ -507,20 +495,19 @@ iv>
 
   <footer>
     <div class="container">
-      <div class="footer-content footer-content--single">
+      <div class="footer-content">
         <div class="footer-info">
           <h3>서울하루치과</h3>
           <div class="info-row">주소: (여기에 주소)</div>
           <div class="info-row">전화: (여기에 전화번호)</div>
+          <div class="info-row">진료시간: (여기에 진료시간)</div>
           <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;">
             <a class="btn" style="background:#333;color:#fff;" href="introduce/contact.html">오시는길</a>
             <a class="btn" style="background:#333;color:#fff;" href="treatments/index.html">진료안내</a>
           </div>
         </div>
-      </div>
-      <div class="footer-bottom" id="footerYear">© Seoul Haru Dental. All rights reserved.</div>
-    </div>
-  </footer>
+        </div>
+</footer>
 
   <!-- 공통 JS -->
   <script src="assets/js/site.js"></script>
@@ -542,7 +529,7 @@ iv>
       }
       const io = new IntersectionObserver((entries)=>{
         entries.forEach(e=>{
-          if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); }
+          if(e.isIntersecting) e.target.classList.add('is-visible');
         });
       }, { threshold: 0.15 });
       targets.forEach(t => io.observe(t));
