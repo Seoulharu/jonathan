@@ -1,241 +1,112 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>서울하루치과 | 보존/충치 치료</title>
-
-  <!-- tooth 폴더는 2단계 아래라 ../../ 로 올라감 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>보존/충치 치료 | 서울하루치과</title>
+  <style>
+  .site-header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e5e7eb;z-index:999}
+  .container{max-width:1120px;margin:0 auto;padding:0 18px}
+  .bar{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#111}
+  .brand img{width:34px;height:34px}
+  .site-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:14px}
+  .site-nav a{color:#111;text-decoration:none;font-size:14px}
+  .menu-toggle{display:none}
+  @media (max-width: 920px){ .menu-toggle{display:inline-flex} .site-nav{display:none} }
+</style>
   <link rel="stylesheet" href="../../assets/css/site.css">
+  <script defer src="../../assets/js/site.js"></script>
 </head>
-
 <body>
-  <!-- HEADER -->
-  <header id="header" style="background:rgba(255,255,255,.96); color:#222; box-shadow:0 2px 12px rgba(0,0,0,.06);">
-    <div class="logo">
-      <a href="../../index.html">서울하루치과 <small>SEOUL HARU DENTAL</small></a>
-    </div>
+<div class="nav-dim"></div>
+<header class="site-header">
+  <div class="container bar">
+    <a class="brand" href="../../index.html">
+      <img src="../../assets/images/logo_mark.png" alt="서울하루치과 로고">
+      <span class="brand-text">
+        <strong>서울하루치과</strong>
+        <small>SEOUL HARU DENTAL</small>
+      </span>
+    </a>
 
-    <button class="menu-toggle" type="button" onclick="toggleMenu()">☰</button>
+    <button class="menu-toggle" type="button" aria-label="메뉴 열기">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
 
-    <nav class="nav" id="nav-menu">
+    <nav class="site-nav" aria-label="주요 메뉴">
       <ul>
         <li><a href="../../index.html">홈</a></li>
         <li><a href="../../introduce/introduce.html">병원소개</a></li>
         <li><a href="../../introduce/doctor.html">의료진</a></li>
         <li><a href="../../special/special.html">특별함</a></li>
-        <li><a href="../index.html">진료안내</a></li>
-        <li><a href="../../introduce/price.html">비용</a></li>
-        <li><a href="../../introduce/contact.html">오시는길</a></li>
+        <li><a href="../../treatments/index.html" data-treatments-link="true">진료안내</a></li>
       </ul>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <!-- PAGE HERO -->
-    <section class="page-hero">
-      <div class="container title">
-        <h1>보존/충치 치료</h1>
-        <p>가능하면 최대한 보존하는 방향을 먼저 고려합니다.</p>
-      </div>
-    </section>
-
-    <!-- INTRO -->
-    <section>
-      <div class="container">
-        <div class="section-header">
-          <h2>충치 치료, 이렇게 이해하면 쉬워요</h2>
-          <p>치료는 “깎는 양”이 아니라 “남기는 양”이 핵심입니다.</p>
-        </div>
-
-        <div style="max-width:980px;margin:0 auto;color:var(--muted);font-size:16px;line-height:1.7;word-break:keep-all;">
-          <p>
-            충치 치료는 크게 <strong>레진(작은 충치)</strong> → <strong>인레이/온레이(중간)</strong> →
-            <strong>크라운(큰 범위)</strong> → <strong>신경치료(신경까지 진행)</strong> 순으로 생각하면 됩니다.
-          </p>
-          <p style="margin-top:10px;">
-            서울하루치과는 “당장 보기 좋게”보다 “오래 쓰는 결과”를 기준으로 치료 범위를 결정합니다.
-          </p>
-        </div>
-
-        <div class="btn-group" style="margin-top:22px;">
-          <a class="btn btn-fill" href="../../introduce/contact.html">오시는길</a>
-          <a class="btn btn-outline" href="../../introduce/price.html">비용 안내</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHEN TO VISIT -->
-    <section style="background:var(--light);">
-      <div class="container">
-        <div class="section-header">
-          <h2>이럴 때는 빨리 오세요</h2>
-          <p>아래 중 하나라도 해당되면 검진을 권장합니다.</p>
-        </div>
-
-        <div class="grid-4">
-          <div class="card">
-            <div class="icon-box">🥶</div>
-            <h3>시린 증상</h3>
-            <p>찬물/단 음식에 민감해졌다면 초기 충치/마모 가능성이 있습니다.</p>
-          </div>
-          <div class="card">
-            <div class="icon-box">😖</div>
-            <h3>씹을 때 통증</h3>
-            <p>음식 씹을 때 찌릿하면 균열/깊은 충치를 의심할 수 있습니다.</p>
-          </div>
-          <div class="card">
-            <div class="icon-box">🕳️</div>
-            <h3>음식이 자주 낌</h3>
-            <p>틈이 커졌다면 충치/보철 문제일 수 있습니다.</p>
-          </div>
-          <div class="card">
-            <div class="icon-box">🦷</div>
-            <h3>검은 점/변색</h3>
-            <p>보이는 변색은 진행된 충치일 수 있어요.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TREATMENT OPTIONS -->
-    <section>
-      <div class="container">
-        <div class="section-header">
-          <h2>치료 종류(간단 정리)</h2>
-          <p>상태에 따라 최적의 방법을 안내드립니다.</p>
-        </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <h3>레진(Composite Resin)</h3>
-            <p>작은 충치에 많이 사용합니다. 한 번 방문으로 끝나는 경우가 많습니다.</p>
-          </div>
-
-          <div class="card">
-            <h3>인레이/온레이(Inlay/Onlay)</h3>
-            <p>중간 정도 범위에 사용합니다. 형태를 더 단단하게 복원합니다.</p>
-          </div>
-
-          <div class="card">
-            <h3>크라운(Crown)</h3>
-            <p>범위가 큰 경우 치아 전체를 씌워 보호합니다.</p>
-          </div>
-
-          <div class="card">
-            <h3>신경치료(Root Canal Treatment)</h3>
-            <p>충치가 신경까지 진행되면 통증이 심해질 수 있어 치료가 필요합니다.</p>
-          </div>
-        </div>
-
-        <div class="note" style="margin-top:14px;">
-          * “무조건 크라운”이 아니라, 가능한 범위에서는 보존 치료를 먼저 고려합니다.
-        </div>
-      </div>
-    </section>
-
-    <!-- FLOW -->
-    <section style="background:var(--light);">
-      <div class="container">
-        <div class="section-header">
-          <h2>치료 진행 흐름</h2>
-          <p>복잡하지 않게, 순서만 보면 됩니다.</p>
-        </div>
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th style="width:200px;">단계</th>
-                <th>내용</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1) 검사/진단</td>
-                <td>충치 범위 확인 → 치료 옵션 비교</td>
-              </tr>
-              <tr>
-                <td>2) 치료</td>
-                <td>레진/인레이/크라운/신경치료 중 선택</td>
-              </tr>
-              <tr>
-                <td>3) 교합(맞물림) 조정</td>
-                <td>씹는 힘이 과하지 않도록 체크</td>
-              </tr>
-              <tr>
-                <td>4) 관리</td>
-                <td>칫솔/치실/치간칫솔 + 정기검진</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section>
-      <div class="container">
-        <div class="section-header">
-          <h2>자주 묻는 질문</h2>
-          <p>필요하면 항목 추가 가능.</p>
-        </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <h3>레진은 오래 가나요?</h3>
-            <p>충치 크기/맞물림/관리 습관에 따라 차이가 있습니다. 정기검진이 중요합니다.</p>
-          </div>
-          <div class="card">
-            <h3>신경치료는 꼭 해야 하나요?</h3>
-            <p>신경까지 진행된 경우 통증과 염증이 커질 수 있어 필요할 수 있습니다. 진단 후 안내드립니다.</p>
-          </div>
-          <div class="card">
-            <h3>치료 후 시린데 정상인가요?</h3>
-            <p>일시적인 민감감이 있을 수 있습니다. 지속되면 내원하여 확인합니다.</p>
-          </div>
-          <div class="card">
-            <h3>비용은 어느 정도인가요?</h3>
-            <p>범위/재료/난이도에 따라 달라집니다. 비용 안내 페이지를 참고하세요.</p>
-            <a class="btn btn-outline" style="margin-top:10px;" href="../../introduce/price.html">비용 안내 보기</a>
-          </div>
-        </div>
-
-        <div class="btn-group" style="margin-top:22px;">
-          <a class="btn btn-fill" href="../../introduce/contact.html">오시는길</a>
-          <a class="btn btn-outline" href="../index.html">진료안내로</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-info">
-          <h3>서울하루치과</h3>
-          <div class="info-row">주소: (여기에 주소)</div>
-          <div class="info-row">전화: (여기에 전화번호)</div>
-          <div class="info-row">진료시간: (여기에 진료시간)</div>
-
-          <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;">
-            <a class="btn" style="background:#333;color:#fff;" href="../../introduce/contact.html">오시는길</a>
-            <a class="btn" style="background:#333;color:#fff;" href="../../index.html">홈으로</a>
-          </div>
-        </div>
-
-        <div class="map-box">
-          지도 영역(나중에 카카오맵 넣을 자리)
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        © Seoul Haru Dental. All rights reserved.
-      </div>
+<main>
+  <section class="page-hero" style="background-image:url('../../assets/images/hero_tooth.jpg')">
+    <div class="container inner">
+      <h1>보존/충치 치료</h1>
+      <p>필요한 만큼만, 오래 쓰는 치료를 지향합니다.</p>
     </div>
-  </footer>
+  </section>
 
-  <script src="../../assets/js/site.js"></script>
+  
+<section class="section container reveal">
+  <div class="section-head">
+    <h2>보존/충치 치료</h2>
+    <p class="muted">치아를 최대한 살리는 방향으로 접근합니다.</p>
+  </div>
+  <p class="muted">통증이 크지 않아도 진행되는 경우가 많습니다. 아래 증상이 있다면 진단을 권합니다.</p>
+</section>
+
+<section class="section container reveal">
+  <div class="section-head">
+    <h2>이럴 때는 빨리 오세요</h2>
+    <p class="muted">아이콘 삭제 → 이미지 카드</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-media"><img loading="lazy" src="../../assets/images/tooth_symptom_sensitive.jpg" alt="시린 증상"></div>
+      <div class="card-body"><h3>시린 증상</h3><p>찬물/바람에 예민해짐</p></div>
+    </div>
+    <div class="card">
+      <div class="card-media"><img loading="lazy" src="../../assets/images/tooth_symptom_bite_pain.jpg" alt="씹을 때 통증"></div>
+      <div class="card-body"><h3>씹을 때 통증</h3><p>특정 부위가 욱신거림</p></div>
+    </div>
+    <div class="card">
+      <div class="card-media"><img loading="lazy" src="../../assets/images/tooth_symptom_food_trap.jpg" alt="음식이 자주 낌"></div>
+      <div class="card-body"><h3>음식이 자주 낌</h3><p>치실이 끊기거나 자주 낌</p></div>
+    </div>
+    <div class="card">
+      <div class="card-media"><img loading="lazy" src="../../assets/images/tooth_symptom_spot_discolor.jpg" alt="검은점/변색"></div>
+      <div class="card-body"><h3>검은점/변색</h3><p>색이 어두워지거나 점이 보임</p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div class="footer-box">
+      <strong>서울하루치과</strong>
+      <p>주소: (여기에 주소 입력)</p>
+      <p>전화: <a href="tel:000-0000-0000">000-0000-0000</a></p>
+    </div>
+    <div class="footer-box">
+      <strong>진료시간</strong>
+      <p>평일: (예) 09:30 - 18:30</p>
+      <p>토요일: (예) 09:30 - 13:30</p>
+      <p>점심: (예) 13:00 - 14:00</p>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
