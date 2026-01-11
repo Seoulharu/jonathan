@@ -99,6 +99,7 @@ header h1 {
   display: flex;
   align-items: center;
   z-index: 1010;
+  flex-shrink: 0;
 }
 header h1 a {
   display: flex;
@@ -132,6 +133,8 @@ header h1 .logo-text small {
 header nav {
   display: flex;
   align-items: center;
+  flex: 1;
+  justify-content: flex-end;
 }
 header nav .lnb {
   display: flex;
@@ -150,6 +153,7 @@ header nav .lnb > li > a {
   color: var(--ink);
   border-radius: 12px;
   transition: background .2s ease;
+  white-space: nowrap;
 }
 header nav .lnb > li > a:hover {
   background: rgba(0,0,0,.04);
@@ -163,6 +167,11 @@ header nav .lnb > li > a span {
   border-top: 6px solid rgba(0,0,0,.4);
   margin-left: 4px;
   transition: transform .25s ease;
+}
+
+/* Desktop info_wrap 숨김 */
+header nav .info_wrap {
+  display: none;
 }
 
 /* Desktop Dropdown */
@@ -340,9 +349,12 @@ header.open #menu_but span:nth-child(3) {
     background: rgba(255,255,255,.12);
   }
   
-  /* Header open state */
+  /* Header open state - 로고 유지 */
   header.open {
     background: var(--main-color);
+  }
+  header.open h1 {
+    z-index: 1010;
   }
   header.open h1 img {
     filter: brightness(0) invert(1);
@@ -351,21 +363,9 @@ header.open #menu_but span:nth-child(3) {
     color: #fff;
   }
   
-  /* Info wrap in mobile nav */
+  /* Info wrap hidden in nav on mobile (removed per request) */
   header nav .info_wrap {
-    margin-top: auto;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255,255,255,.12);
-  }
-  header nav .info_wrap li {
-    color: rgba(255,255,255,.8);
-    font-size: 14px;
-    padding: 6px 0;
-  }
-  header nav .info_wrap li a {
-    color: #fff;
-    font-weight: 700;
-    font-size: 20px;
+    display: none;
   }
 }
 
@@ -633,6 +633,81 @@ body.nav-open {
   #doctor > div > ul { gap: 20px; flex-wrap: wrap; justify-content: center; }
   #doctor > div > ul > li img { max-width: 280px; }
   #doctor > div > ul > li:nth-child(2) { display: none; }
+}
+
+/* Doctor Profile Section - 진솔한치과 스타일 */
+#doctor .doctor-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 60px;
+  text-align: left;
+}
+#doctor .doctor-profile .profile-img img {
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+#doctor .doctor-profile .profile-info h4 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+#doctor .doctor-profile .profile-info h4 span {
+  font-size: 28px;
+  font-weight: 400;
+  margin-left: 10px;
+}
+#doctor .doctor-profile .profile-info .badges {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 30px 0;
+}
+#doctor .doctor-profile .profile-info .badges li {
+  display: inline-block;
+  background: var(--main-color);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+}
+#doctor .doctor-profile .profile-info .badges li span {
+  color: #ffd700;
+}
+#doctor .doctor-profile .profile-info .career {
+  font-size: 17px;
+  line-height: 2;
+  color: var(--body);
+}
+
+@media (max-width: 980px) {
+  #doctor .doctor-profile {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+  #doctor .doctor-profile .profile-img img {
+    max-width: 100%;
+  }
+  #doctor .doctor-profile .profile-info h4 {
+    font-size: 36px;
+  }
+  #doctor .doctor-profile .profile-info h4 span {
+    font-size: 22px;
+    display: block;
+    margin-left: 0;
+    margin-top: 5px;
+  }
+  #doctor .doctor-profile .profile-info .badges {
+    align-items: center;
+  }
+  #doctor .doctor-profile .profile-info .badges li {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
 }
 
 /* =========================================================
@@ -971,14 +1046,28 @@ footer .copy span {
   text-align: center;
   margin-bottom: 50px;
 }
+/* 메인페이지 #special 스타일과 동일하게 통일 */
 .con_wrap .sub_tit h3 {
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 28px;
+  font-family: "Noto Serif KR", serif;
+  font-weight: 600;
+}
+.con_wrap .sub_tit h3 .num {
+  color: var(--line);
+  font-family: 'Cardo', serif;
+  font-style: italic;
+  font-weight: 400;
+  margin-right: 12px;
 }
 .con_wrap .sub_tit p {
-  color: var(--muted);
-  margin-top: 12px;
   font-size: 16px;
+  color: var(--muted);
+  margin-top: 16px;
+  line-height: 1.7;
+}
+.con_wrap .sub_tit p span {
+  color: var(--main-color);
+  font-weight: 600;
 }
 
 /* Card Grid */
