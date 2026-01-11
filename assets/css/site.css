@@ -1422,3 +1422,136 @@ tr:last-child td {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* =========================================================
+   추가 스타일 - 리스트 정렬 및 모바일 개선
+   ========================================================= */
+
+/* PC에서 content-list 중앙 정렬 */
+@media (min-width: 981px) {
+  .content-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .content-list li {
+    text-align: left;
+    max-width: 600px;
+    width: 100%;
+  }
+}
+
+/* 모바일 햄버거 버튼 터치 영역 확대 */
+@media (max-width: 980px) {
+  .menu_wrap {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #menu_but {
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  #menu_but span {
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    display: block;
+    transition: all 0.3s;
+  }
+  
+  /* 모바일 메뉴 열렸을 때 로고 표시 */
+  header.open nav::before {
+    content: '';
+    display: block;
+    width: 100%;
+    padding: 20px 24px;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+  }
+  header.open nav .mobile-logo {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  header.open nav .mobile-logo img {
+    width: 40px;
+    height: 40px;
+  }
+  header.open nav .mobile-logo span {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+  }
+}
+
+/* Two Column Layout (이미지 + 텍스트) */
+.two-column {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+.two-column.reverse {
+  flex-direction: row-reverse;
+}
+.two-column .col-text {
+  flex: 1;
+}
+.two-column .col-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text);
+}
+.two-column .col-img {
+  flex: 1;
+  max-width: 400px;
+}
+.two-column .col-img img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+@media (max-width: 768px) {
+  .two-column,
+  .two-column.reverse {
+    flex-direction: column;
+  }
+  .two-column .col-img {
+    max-width: 100%;
+  }
+}
+
+/* Image Gallery */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.gallery-grid img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-grid img {
+    height: 200px;
+  }
+}

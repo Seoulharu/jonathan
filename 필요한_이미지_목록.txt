@@ -1,0 +1,111 @@
+====================================================
+서울하루치과 웹사이트 - 필요한 이미지 목록
+====================================================
+
+■ 현재 보유 이미지로 대체 완료된 항목:
+- sub_visual.jpg → hero_fallback.jpg로 대체
+- main_subject_01~04.jpg → main_subject_01~04.png로 수정
+
+■ 추가로 필요한 이미지 (총 12개)
+
+----------------------------------------------------
+1. 임플란트 카테고리 카드 썸네일 (5개)
+----------------------------------------------------
+
+파일명: implant_card_01.jpg (즉시기능 임플란트)
+용도: 임플란트 전체페이지 카드 썸네일
+권장 사이즈: 400x300px
+GPT 이미지 생성 프롬프트:
+"Clean modern dental implant procedure concept, single tooth implant fixture being placed, soft clinical lighting, professional medical photography style, white and blue tones, minimalist composition, no text"
+
+파일명: implant_card_02.jpg (뼈이식 임플란트)
+용도: 임플란트 전체페이지 카드 썸네일
+권장 사이즈: 400x300px
+GPT 이미지 생성 프롬프트:
+"Dental bone grafting concept illustration, jawbone cross-section showing bone regeneration, soft medical diagram style, clean white background, professional healthcare imagery, subtle blue accents"
+
+파일명: implant_card_03.jpg (상악동 임플란트)
+용도: 임플란트 전체페이지 카드 썸네일
+권장 사이즈: 400x300px
+GPT 이미지 생성 프롬프트:
+"Sinus lift dental procedure concept, upper jaw anatomy showing maxillary sinus area, clean medical illustration style, soft lighting, professional dental imagery, white and light blue tones"
+
+파일명: implant_card_04.jpg (무치악 임플란트)
+용도: 임플란트 전체페이지 카드 썸네일
+권장 사이즈: 400x300px
+GPT 이미지 생성 프롬프트:
+"Full arch dental implant restoration, All-on-4 or All-on-6 concept, complete denture supported by implants, clean medical photography style, bright clinical setting, professional dental imagery"
+
+파일명: implant_card_05.jpg (보험 임플란트)
+용도: 임플란트 전체페이지 카드 썸네일
+권장 사이즈: 400x300px
+GPT 이미지 생성 프롬프트:
+"Senior patient smiling with healthy teeth, elderly Korean person with natural smile, warm and friendly atmosphere, soft lighting, healthcare concept, gentle and trustworthy mood"
+
+----------------------------------------------------
+2. 보존/보철 카테고리 카드 썸네일 (4개)
+----------------------------------------------------
+
+파일명: preservation_card_01.jpg (신경치료)
+용도: 보존보철 전체페이지 카드 썸네일
+권장 사이즈: 400x300px
+GPT 이미지 생성 프롬프트:
+"Root canal treatment concept, tooth cross-section showing nerve canal, clean dental diagram style, soft medical illustration, white background with subtle blue accents, professional healthcare imagery"
+
+파일명: preservation_card_02.jpg (크라운)
+용도: 보존보철 전체페이지 카드 썸네일
+권장 사이즈: 400x300px
+GPT 이미지 생성 프롬프트:
+"Dental crown restoration, ceramic tooth crown being placed on prepared tooth, clean clinical photography, soft lighting, professional dental prosthetics imagery, white and neutral tones"
+
+파일명: preservation_card_03.jpg (인레이)
+용도: 보존보철 전체페이지 카드 썸네일
+권장 사이즈: 400x300px
+GPT 이미지 생성 프롬프트:
+"Dental inlay restoration, gold or ceramic inlay on molar tooth, precise dental work concept, clean medical photography style, professional dental imagery, neutral clinical setting"
+
+파일명: preservation_card_04.jpg (레진)
+용도: 보존보철 전체페이지 카드 썸네일
+권장 사이즈: 400x300px
+GPT 이미지 생성 프롬프트:
+"Composite resin dental filling, tooth-colored restoration on front tooth, cosmetic dentistry concept, bright clean smile, professional dental photography, natural and aesthetic result"
+
+----------------------------------------------------
+3. 교정 카테고리 카드 썸네일 (3개)
+----------------------------------------------------
+
+파일명: orthodontics_card_01.jpg (전체교정)
+용도: 교정 전체페이지 카드 썸네일
+권장 사이즈: 400x300px
+GPT 이미지 생성 프롬프트:
+"Full orthodontic braces treatment, ceramic or metal brackets on teeth, clean professional dental photography, bright smile with braces, soft lighting, healthcare beauty concept"
+
+파일명: orthodontics_card_02.jpg (부분교정)
+용도: 교정 전체페이지 카드 썸네일
+권장 사이즈: 400x300px
+GPT 이미지 생성 프롬프트:
+"Partial orthodontic treatment, clear aligners or limited braces on front teeth only, clean dental photography, subtle correction concept, professional healthcare imagery"
+
+파일명: orthodontics_card_03.jpg (소아교정)
+용도: 교정 전체페이지 카드 썸네일
+권장 사이즈: 400x300px
+GPT 이미지 생성 프롬프트:
+"Child orthodontic treatment concept, happy Asian child smiling with early orthodontic appliance, warm friendly atmosphere, pediatric dentistry, bright and cheerful setting"
+
+====================================================
+■ 대체 가능한 기존 이미지 활용 제안
+====================================================
+
+현재 보유 중인 이미지로 대체 가능:
+- implant_env_01~03.jpg → 임플란트 환경/분위기 이미지로 활용
+- implant_point_xxx.jpg → 임플란트 특징 설명 이미지로 활용
+- tooth_symptom_xxx.jpg → 증상 설명 이미지로 활용
+- treat_xxx.jpg → 진료 관련 이미지로 활용
+
+====================================================
+■ 이미지 파일 배치 위치
+====================================================
+
+모든 이미지는 아래 경로에 저장:
+/assets/images/
+
