@@ -95,12 +95,15 @@
 
   lnbItems.forEach(function(item) {
     const link = item.querySelector(':scope > a');
+    const arrow = link ? link.querySelector('span') : null;
     const subMenu = item.querySelector(':scope > ul');
     
-    if (link && subMenu) {
-      link.addEventListener('click', function(e) {
+    if (link && subMenu && arrow) {
+      // 화살표(span) 클릭 시 하위메뉴 토글
+      arrow.addEventListener('click', function(e) {
         if (isMobile()) {
           e.preventDefault();
+          e.stopPropagation();
           
           // 다른 메뉴 닫기
           lnbItems.forEach(function(otherItem) {
@@ -111,6 +114,19 @@
           
           // 현재 메뉴 토글
           item.classList.toggle('active');
+        }
+      });
+      
+      // 메인 링크 클릭 시 해당 페이지로 이동 (모바일에서도)
+      link.addEventListener('click', function(e) {
+        if (isMobile()) {
+          // span(화살표) 클릭이 아니면 링크 이동 허용
+          if (e.target === arrow) {
+            e.preventDefault();
+          } else {
+            // 링크로 이동 (기본 동작)
+            setTimeout(closeNav, 100);
+          }
         }
       });
     }
