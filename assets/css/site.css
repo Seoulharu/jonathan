@@ -1070,6 +1070,128 @@ footer .copy span {
   font-weight: 600;
 }
 
+/* Text Content */
+.text-content {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.9;
+  color: var(--body);
+}
+.text-content.center {
+  text-align: center;
+}
+.text-content p + p {
+  margin-top: 20px;
+}
+
+/* Feature Grid */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.feature-item {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+.feature-item h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--main-color);
+  margin-bottom: 12px;
+}
+.feature-item p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+@media (max-width: 768px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .feature-item {
+    padding: 24px;
+  }
+}
+
+/* Step List */
+.step-list {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+.step-item:last-child {
+  border-bottom: none;
+}
+.step-num {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: var(--main-color);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+}
+.step-item h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.step-item p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* FAQ Section */
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.faq-item {
+  border-bottom: 1px solid var(--line);
+  padding: 24px 0;
+}
+.faq-item:last-child {
+  border-bottom: none;
+}
+.faq-item h4 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.faq-item h4::before {
+  content: 'Q.';
+  color: var(--main-color);
+  font-weight: 800;
+}
+.faq-item p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.8;
+  padding-left: 28px;
+}
+
 /* Card Grid */
 .card-grid {
   display: grid;
