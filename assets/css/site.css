@@ -1208,3 +1208,212 @@ footer .copy span {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* =========================================================
+   의료진 듀얼 레이아웃 (사진 2개 양쪽에서 중앙으로)
+   ========================================================= */
+
+.doctor-dual-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.doctor-dual-wrap .doctor-img {
+  flex: 0 0 280px;
+  max-width: 280px;
+}
+
+.doctor-dual-wrap .doctor-img img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+
+.doctor-dual-wrap .doctor-img.left img {
+  transform: translateX(20px);
+}
+
+.doctor-dual-wrap .doctor-img.right img {
+  transform: translateX(-20px);
+}
+
+.doctor-dual-wrap .doctor-info {
+  flex: 0 0 auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.doctor-dual-wrap .doctor-info h3 {
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+
+.doctor-dual-wrap .doctor-info h3 strong {
+  font-weight: 600;
+  color: var(--main-color);
+}
+
+.doctor-dual-wrap .doctor-info p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--text-light);
+}
+
+@media (max-width: 1024px) {
+  .doctor-dual-wrap {
+    flex-wrap: wrap;
+  }
+  
+  .doctor-dual-wrap .doctor-info {
+    order: -1;
+    flex: 0 0 100%;
+    margin-bottom: 40px;
+  }
+  
+  .doctor-dual-wrap .doctor-img {
+    flex: 0 0 45%;
+  }
+  
+  .doctor-dual-wrap .doctor-img.left img,
+  .doctor-dual-wrap .doctor-img.right img {
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .doctor-dual-wrap .doctor-img {
+    flex: 0 0 100%;
+    max-width: 300px;
+  }
+  
+  .doctor-dual-wrap .doctor-info h3 {
+    font-size: 22px;
+  }
+}
+
+/* =========================================================
+   메인 특별함 섹션
+   ========================================================= */
+
+.main_special {
+  padding: 100px 0;
+  background: var(--card);
+}
+
+.special-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.special-header small {
+  display: block;
+  font-size: 13px;
+  color: var(--main-color);
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.special-header > p:first-of-type {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+
+.special-header h3 {
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.special-header h3 strong {
+  font-weight: 600;
+}
+
+.special-header .desc {
+  font-size: 15px;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+.special-img {
+  max-width: 600px;
+  margin: 0 auto 60px;
+}
+
+.special-img img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+.special-list {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.special-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.special-item:last-child {
+  border-bottom: none;
+}
+
+.special-item .num {
+  font-size: 14px;
+  color: var(--main-color);
+  font-weight: 500;
+  font-style: italic;
+  min-width: 30px;
+}
+
+.special-item .item-content h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.special-item .item-content p {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+.special-item .item-content p strong {
+  color: var(--main-color);
+  font-weight: 500;
+}
+
+.special-divider {
+  border: none;
+  border-top: 2px dashed var(--border);
+  margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .main_special {
+    padding: 60px 0;
+  }
+  
+  .special-header h3 {
+    font-size: 24px;
+  }
+  
+  .special-item .item-content h4 {
+    font-size: 16px;
+  }
+  
+  .special-item .item-content p {
+    font-size: 13px;
+  }
+}
