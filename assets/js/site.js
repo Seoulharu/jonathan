@@ -25,7 +25,6 @@
     scrollY = window.scrollY || window.pageYOffset || 0;
     header.classList.add('open');
     navDim.classList.add('show');
-    if (mobileLogo) mobileLogo.style.display = 'flex';
     document.body.classList.add('nav-open');
     document.body.style.top = `-${scrollY}px`;
   }
@@ -35,7 +34,6 @@
     isNavOpen = false;
     header.classList.remove('open');
     navDim.classList.remove('show');
-    if (mobileLogo) mobileLogo.style.display = 'none';
     lnbItems.forEach(item => item.classList.remove('active'));
     document.body.classList.remove('nav-open');
     document.body.style.top = '';
@@ -52,7 +50,6 @@
       e.stopPropagation();
       toggleNav();
     });
-    // 터치 이벤트 추가
     menuBut.addEventListener('touchend', function(e) {
       e.preventDefault();
       e.stopPropagation();
@@ -70,6 +67,7 @@
 
   // =========================================================
   // MOBILE SUBMENU TOGGLE
+  // 모바일에서 메인 메뉴 클릭 시 하위메뉴만 토글 (페이지 이동 X)
   // =========================================================
   
   function isMobile() {
@@ -78,34 +76,24 @@
 
   lnbItems.forEach(function(item) {
     const link = item.querySelector(':scope > a');
-    const arrow = link ? link.querySelector('span') : null;
     const subMenu = item.querySelector(':scope > ul');
     
-    if (link && subMenu && arrow) {
-      // 화살표(span) 클릭 시 하위메뉴 토글
-      arrow.addEventListener('click', function(e) {
+    if (link && subMenu) {
+      link.addEventListener('click', function(e) {
         if (isMobile()) {
           e.preventDefault();
-          e.stopPropagation();
+          // 다른 메뉴 닫기
           lnbItems.forEach(function(otherItem) {
             if (otherItem !== item) otherItem.classList.remove('active');
           });
+          // 현재 메뉴 토글
           item.classList.toggle('active');
-        }
-      });
-      
-      // 메인 링크 클릭 시 페이지 이동
-      link.addEventListener('click', function(e) {
-        if (isMobile() && e.target === arrow) {
-          e.preventDefault();
-        } else if (isMobile()) {
-          setTimeout(closeNav, 100);
         }
       });
     }
   });
 
-  // 서브메뉴 링크 클릭시 메뉴 닫기
+  // 서브메뉴 링크 클릭시 메뉴 닫고 페이지 이동
   const subLinks = document.querySelectorAll('header nav .lnb > li > ul > li > a');
   subLinks.forEach(function(link) {
     link.addEventListener('click', function() {

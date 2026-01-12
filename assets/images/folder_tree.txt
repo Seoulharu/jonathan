@@ -18,6 +18,11 @@ C:.
     hero_special.jpg
     hero_tooth.jpg
     hero_treatments.jpg
+    implant_card_01.jpg
+    implant_card_02.jpg
+    implant_card_03.jpg
+    implant_card_04.jpg
+    implant_card_05.jpg
     implant_env_01.jpg
     implant_env_02.jpg
     implant_env_03.jpg
@@ -47,6 +52,13 @@ C:.
     main_visual_02_bg.jpg
     mood_couple_warm.jpg
     mood_family_field.jpg
+    orthodontics_card_01.jpg
+    orthodontics_card_02.jpg
+    orthodontics_card_03.jpg
+    preservation_card_01.jpg
+    preservation_card_02.jpg
+    preservation_card_03.jpg
+    preservation_card_04.jpg
     promise_01_honest.jpg
     promise_02_transparent.jpg
     promise_03_gentle.jpg
