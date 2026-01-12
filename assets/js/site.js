@@ -12,21 +12,18 @@
   const lnbItems = document.querySelectorAll('header nav .lnb > li');
   const mobileLogo = document.querySelector('.mobile-logo');
 
-  let scrollY = 0;
   let isNavOpen = false;
 
   // =========================================================
-  // MOBILE MENU
+  // MOBILE MENU - 스크롤 위치 유지 버전
   // =========================================================
   
   function openNav() {
     if (isNavOpen) return;
     isNavOpen = true;
-    scrollY = window.scrollY || window.pageYOffset || 0;
     header.classList.add('open');
     navDim.classList.add('show');
     document.body.classList.add('nav-open');
-    document.body.style.top = `-${scrollY}px`;
   }
 
   function closeNav() {
@@ -36,8 +33,6 @@
     navDim.classList.remove('show');
     lnbItems.forEach(item => item.classList.remove('active'));
     document.body.classList.remove('nav-open');
-    document.body.style.top = '';
-    window.scrollTo(0, scrollY);
   }
 
   function toggleNav() {
