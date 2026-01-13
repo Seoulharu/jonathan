@@ -1,0 +1,99 @@
+============================================================
+서울하루치과 웹사이트 - 필요한 이미지 목록 및 AI 생성 프롬프트
+============================================================
+
+[이미지 저장 위치]
+/assets/images/ 폴더에 저장
+
+============================================================
+임플란트 페이지 이미지
+============================================================
+
+1. implant_sinus_01.jpg (상악동 임플란트)
+   - 위치: 상악동 페이지 섹션1
+   - 내용: 상악동(부비동) 위치와 임플란트 관계를 보여주는 의료 일러스트
+   - GPT 프롬프트: "Medical illustration showing the maxillary sinus area in cross-section view, dental implant placement near sinus floor, clean white and teal color scheme, professional medical style, no text, educational diagram style"
+
+2. implant_allon_01.jpg (무치악 임플란트)
+   - 위치: 무치악 페이지 섹션1
+   - 내용: All-on-4 또는 전악 임플란트 개념도
+   - GPT 프롬프트: "Medical illustration of All-on-4 dental implant concept, showing four implants supporting a full arch of teeth, clean clinical style, teal and white color scheme, professional dental visualization, side view"
+
+3. implant_insurance_01.jpg (보험 임플란트)
+   - 위치: 보험 임플란트 페이지 섹션1
+   - 내용: 어르신 친화적 치과 상담 장면
+   - GPT 프롬프트: "Friendly dental consultation scene with elderly Asian patient and dentist, warm professional atmosphere, modern dental clinic setting, natural lighting, reassuring and comfortable mood"
+
+============================================================
+보존보철 페이지 이미지
+============================================================
+
+4. crown_01.jpg (크라운)
+   - 위치: 크라운 페이지 섹션1
+   - 내용: 크라운(치아 씌우기) 시술 개념도
+   - GPT 프롬프트: "Dental crown illustration showing the crown being placed over a prepared tooth, clean white porcelain crown, professional medical diagram style, teal accent color, cross-section view"
+
+5. inlay_01.jpg (인레이)
+   - 위치: 인레이 페이지 섹션1
+   - 내용: 인레이가 치아에 맞춤 삽입되는 모습
+   - GPT 프롬프트: "Dental inlay illustration showing custom-fitted restoration being placed into a tooth cavity, ceramic or gold inlay, professional dental diagram, clean clinical style, detailed view"
+
+6. resin_01.jpg (레진)
+   - 위치: 레진 페이지 섹션1
+   - 내용: 레진 충전 과정 또는 완료된 자연스러운 치아
+   - GPT 프롬프트: "Composite resin dental filling process, tooth-colored filling material being applied to cavity, before and after concept, natural tooth appearance, clean clinical photography style"
+
+============================================================
+교정 페이지 이미지
+============================================================
+
+7. ortho_full_01.jpg (전체교정)
+   - 위치: 전체교정 페이지 섹션1
+   - 내용: 교정 장치가 부착된 치아 또는 투명교정
+   - GPT 프롬프트: "Close-up of orthodontic braces on teeth, clean ceramic brackets, professional dental photography, bright clean lighting, healthy teeth alignment process"
+
+8. ortho_partial_01.jpg (부분교정)
+   - 위치: 부분교정 페이지 섹션1
+   - 내용: 앞니 부분에만 교정 장치가 있는 모습
+   - GPT 프롬프트: "Partial orthodontics on front teeth only, clear aligners or minimal brackets on anterior teeth, close-up dental view, clean professional style, subtle correction concept"
+
+9. ortho_child_01.jpg (소아교정)
+   - 위치: 소아교정 페이지 섹션1
+   - 내용: 어린이 친화적 치과 환경 또는 어린이 치아 검진
+   - GPT 프롬프트: "Child-friendly dental consultation, young Asian child smiling during orthodontic checkup, warm and friendly dental clinic atmosphere, pastel colors, reassuring environment"
+
+============================================================
+기존에 필요할 수 있는 추가 이미지
+============================================================
+
+10. main_doctor_01.jpg / main_doctor_02.jpg (메인 의료진)
+    - 위치: 메인페이지 의료진 섹션
+    - 내용: 원장 프로필 사진 (2장 - 양쪽 배치용)
+    - GPT 프롬프트: "Professional Korean dentist portrait, white coat, confident and friendly expression, clean dental clinic background, natural lighting, professional headshot style"
+
+11. doctor_profile.jpg (의료진 상세)
+    - 위치: 의료진소개 페이지
+    - 내용: 원장 상담 또는 진료 모습
+    - GPT 프롬프트: "Korean dentist explaining treatment to patient, warm consultation scene, modern dental clinic, professional yet approachable atmosphere"
+
+============================================================
+이미지 사양
+============================================================
+
+- 권장 크기: 800x600px 또는 1200x800px
+- 파일 형식: JPG (압축 품질 80%)
+- 스타일: 깔끔하고 전문적인 의료 이미지
+- 색상: 민트/틸(#4a9b9b) 포인트, 화이트 베이스
+- 분위기: 신뢰감, 깔끔함, 편안함
+
+============================================================
+GPT 이미지 생성 시 공통 추가 키워드
+============================================================
+
+- "high quality"
+- "professional lighting"
+- "clean background"
+- "medical professional style"
+- "no text or watermarks"
+- "4:3 aspect ratio"
+
