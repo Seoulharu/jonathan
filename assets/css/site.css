@@ -1932,3 +1932,94 @@ footer {
     font-size: 20px;
   }
 }
+
+/* ===== 메인 진료과목 - 이미지 없는 세련된 카드 ===== */
+.main_subject .subject-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.main_subject .subject-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 28px;
+  background: var(--white);
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  min-height: 140px;
+}
+.main_subject .subject-item:hover {
+  border-color: var(--main-color);
+  box-shadow: 0 8px 30px rgba(74, 155, 155, 0.12);
+  transform: translateY(-4px);
+}
+.main_subject .subject-item h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.main_subject .subject-item p {
+  font-size: 14px;
+  color: #777;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.main_subject .subject-item .arrow {
+  font-size: 18px;
+  color: var(--main-color);
+  font-weight: 500;
+  align-self: flex-end;
+  opacity: 0.6;
+  transition: all 0.25s;
+}
+.main_subject .subject-item:hover .arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+.main_subject .subject-item:hover h4 {
+  color: var(--main-color);
+}
+
+/* 의료진 약력 리스트 스타일 */
+.doctor-credentials ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+.doctor-credentials li {
+  position: relative;
+  padding-left: 14px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+.doctor-credentials li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 4px;
+  height: 4px;
+  background: var(--main-color);
+  border-radius: 50%;
+}
+
+@media (max-width: 900px) {
+  .main_subject .subject-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .main_subject .subject-grid {
+    grid-template-columns: 1fr;
+  }
+  .main_subject .subject-item {
+    min-height: auto;
+    padding: 24px 20px;
+  }
+}
