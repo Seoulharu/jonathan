@@ -2023,3 +2023,72 @@ footer {
     padding: 24px 20px;
   }
 }
+
+/* ===== 의료진 섹션 리뉴얼 ===== */
+.main_doctor .doctor-info .label {
+  color: var(--main-color);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.main_doctor .doctor-info h3 {
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 28px;
+}
+.main_doctor .doctor-info h3 strong {
+  font-weight: 700;
+}
+.main_doctor .doctor-credentials {
+  margin-bottom: 28px;
+}
+.main_doctor .doctor-credentials ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.main_doctor .doctor-credentials li {
+  position: relative;
+  padding-left: 14px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+.main_doctor .doctor-credentials li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 4px;
+  height: 4px;
+  background: var(--main-color);
+  border-radius: 50%;
+}
+.main_doctor .doctor-info .quote {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.8;
+  padding-top: 20px;
+  border-top: 1px solid #e5e5e5;
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .main_doctor .doctor-info h3 {
+    font-size: 26px;
+  }
+}
+@media (max-width: 768px) {
+  .main_doctor .doctor-info h3 {
+    font-size: 24px;
+    text-align: center;
+  }
+  .main_doctor .doctor-info .label {
+    text-align: center;
+  }
+  .main_doctor .doctor-info .quote {
+    text-align: center;
+  }
+}
