@@ -1,37 +1,87 @@
-
-
 ============================================================
-기존에 필요할 수 있는 추가 이미지
+서울하루치과 홈페이지 필요 이미지 목록
 ============================================================
 
-10. main_doctor_01.jpg / main_doctor_02.jpg (메인 의료진)
-    - 위치: 메인페이지 의료진 섹션
-    - 내용: 원장 프로필 사진 (2장 - 양쪽 배치용)
-    - GPT 프롬프트: "Professional Korean dentist portrait, white coat, confident and friendly expression, clean dental clinic background, natural lighting, professional headshot style"
-
-11. doctor_profile.jpg (의료진 상세)
-    - 위치: 의료진소개 페이지
-    - 내용: 원장 상담 또는 진료 모습
-    - GPT 프롬프트: "Korean dentist explaining treatment to patient, warm consultation scene, modern dental clinic, professional yet approachable atmosphere"
+[저장 위치: /assets/images/]
 
 ============================================================
-이미지 사양
+# 임플란트 (3페이지 × 3개 = 9개)
 ============================================================
 
-- 권장 크기: 800x600px 또는 1200x800px
-- 파일 형식: JPG (압축 품질 80%)
-- 스타일: 깔끔하고 전문적인 의료 이미지
-- 색상: 민트/틸(#4a9b9b) 포인트, 화이트 베이스
-- 분위기: 신뢰감, 깔끔함, 편안함
+[implant_01.html - 뼈이식 임플란트]
+• implant_bone_hero.jpg       - 뼈이식 개념/메인
+• implant_bone_graft.jpg      - 뼈이식 필요한 경우
+• implant_bone_healing.jpg    - 치료과정/치유
+
+[implant_02.html - 상악동 임플란트]
+• implant_sinus_hero.jpg      - 상악동 개념/메인
+• implant_sinus_lift.jpg      - 시술방법
+• implant_sinus_after.jpg     - 완성/주의사항
+
+[implant_03.html - 무치악 임플란트]
+• implant_allon_hero.jpg      - 무치악 솔루션/메인
+• implant_allon_compare.jpg   - 종류 비교
+• implant_allon_smile.jpg     - 결과/미소
 
 ============================================================
-GPT 이미지 생성 시 공통 추가 키워드
+# 보존/보철 (4페이지 × 3개 = 12개) - 현재 숨김상태
 ============================================================
 
-- "high quality"
-- "professional lighting"
-- "clean background"
-- "medical professional style"
-- "no text or watermarks"
-- "4:3 aspect ratio"
+[nerve.html - 신경치료]
+• nerve_hero.jpg              - 신경치료 개념
+• nerve_process.jpg           - 치료과정
+• nerve_tools.jpg             - 장비/기구
 
+[crown.html - 크라운]
+• crown_hero.jpg              - 크라운 개념
+• crown_types.jpg             - 종류 비교
+• crown_before_after.jpg      - 전후 비교
+
+[inlay.html - 인레이]
+• inlay_hero.jpg              - 인레이 개념
+• inlay_compare.jpg           - 레진 vs 인레이
+• inlay_materials.jpg         - 재료 종류
+
+[resin.html - 레진]
+• resin_hero.jpg              - 레진 개념
+• resin_cases.jpg             - 적합 케이스
+• resin_result.jpg            - 결과
+
+============================================================
+# 교정 (2페이지 × 3개 = 6개) - 현재 숨김상태
+============================================================
+
+[digital.html - 디지털 교정]
+• ortho_digital_hero.jpg      - 디지털 스캔/장비
+• ortho_digital_process.jpg   - 3D 시뮬레이션
+• ortho_digital_result.jpg    - 정밀한 결과
+
+[clear.html - 투명교정]
+• ortho_clear_hero.jpg        - 투명교정 장치
+• ortho_clear_lifestyle.jpg   - 일상생활 장점
+• ortho_clear_case.jpg        - 전후 케이스
+
+============================================================
+# 기타 공통 이미지
+============================================================
+
+• hero_implant.jpg            - 임플란트 서브비주얼
+• hero_tooth.jpg              - 보존보철 서브비주얼
+• hero_beauty.jpg             - 교정 서브비주얼
+• hero_clinic.jpg             - 병원소개 서브비주얼
+• logo_mark.png               - 로고
+• doctor_profile.jpg          - 원장님 프로필 사진
+
+============================================================
+# 총 이미지 수
+============================================================
+
+| 카테고리    | 페이지 | 이미지 |
+|------------|--------|--------|
+| 임플란트    | 3개    | 9개    |
+| 보존/보철   | 4개    | 12개   |
+| 교정        | 2개    | 6개    |
+| 공통        | -      | 6개    |
+| 합계        | 9개    | 33개   |
+
+============================================================
