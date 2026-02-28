@@ -1700,3 +1700,235 @@ footer {
     text-align: center;
   }
 }
+
+/* ===== 의료진소개 페이지 ===== */
+.doctor-greeting {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+}
+.doctor-greeting .doctor-photo {
+  flex-shrink: 0;
+  width: 260px;
+  height: 340px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f5f5f5;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.doctor-greeting .doctor-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.doctor-message {
+  flex: 1;
+  padding-top: 10px;
+}
+.doctor-message .greeting-main {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+.doctor-message p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+/* 진료철학 그리드 */
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.philosophy-item {
+  background: var(--white);
+  padding: 30px 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  border: 1px solid #eee;
+}
+.philosophy-item h4 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--main-color);
+  margin-bottom: 12px;
+}
+.philosophy-item p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666;
+}
+
+/* 약력 섹션 */
+.career-section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 700px;
+}
+.career-group h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--main-color);
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--main-color);
+  display: inline-block;
+}
+.career-group ul {
+  list-style: none;
+  padding: 0;
+}
+.career-group li {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+.career-group li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 5px;
+  height: 5px;
+  background: var(--main-color);
+  border-radius: 50%;
+}
+
+/* ===== 오시는길 페이지 ===== */
+.map-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+
+.transport-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.transport-item {
+  background: var(--white);
+  padding: 28px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.transport-item h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--main-color);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eee;
+}
+.transport-item ul {
+  list-style: none;
+  padding: 0;
+}
+.transport-item li {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+.time-table-wrap {
+  max-width: 500px;
+}
+.time-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.time-table th,
+.time-table td {
+  padding: 18px 24px;
+  text-align: left;
+  font-size: 15px;
+}
+.time-table thead {
+  background: var(--main-color);
+}
+.time-table th {
+  color: var(--white);
+  font-weight: 500;
+}
+.time-table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+}
+.time-table tbody tr:last-child {
+  border-bottom: none;
+}
+.time-table td {
+  color: #555;
+}
+.time-table tr.closed td {
+  color: var(--main-color);
+  font-weight: 500;
+}
+
+.contact-phone {
+  text-align: center;
+  padding: 20px 0;
+}
+.contact-phone a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 40px;
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.contact-phone a:hover {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+.contact-phone svg {
+  color: var(--main-color);
+}
+.contact-phone span {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--main-color);
+}
+
+/* 반응형 */
+@media (max-width: 900px) {
+  .philosophy-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .doctor-greeting {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .doctor-greeting .doctor-photo {
+    width: 200px;
+    height: 260px;
+  }
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+  }
+  .transport-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-phone span {
+    font-size: 20px;
+  }
+}
