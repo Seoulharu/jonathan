@@ -117,7 +117,12 @@
   
   function handleScroll() {
     if (isNavOpen) return;
-    header.classList.toggle('scrolled', window.scrollY > 50);
+    // 모바일에서는 항상 scrolled (흰 배경 유지)
+    if (window.innerWidth <= 980) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    }
   }
 
   window.addEventListener('scroll', handleScroll, { passive: true });
