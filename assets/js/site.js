@@ -5,6 +5,14 @@
 (function() {
   "use strict";
 
+  // 페이지 로드 시 모바일 메뉴 transition 깜빡임 방지
+  (function() {
+    var style = document.createElement('style');
+    style.textContent = 'header nav { transition: none !important; }';
+    document.head.appendChild(style);
+    setTimeout(function() { document.head.removeChild(style); }, 200);
+  })();
+
   const header = document.querySelector('header');
   const menuBut = document.getElementById('menu_but');
   const nav = document.querySelector('header nav');
@@ -40,16 +48,19 @@
   }
 
   if (menuBut) {
-    menuBut.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      toggleNav();
-    });
+    let lastTouchEnd = 0;
     menuBut.addEventListener('touchend', function(e) {
       e.preventDefault();
       e.stopPropagation();
+      lastTouchEnd = Date.now();
       toggleNav();
     }, { passive: false });
+    menuBut.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (Date.now() - lastTouchEnd < 300) return;
+      toggleNav();
+    });
   }
 
   if (navDim) {
