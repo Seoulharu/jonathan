@@ -2092,3 +2092,222 @@ footer {
     text-align: center;
   }
 }
+
+/* ===== 투명교정 페이지 스타일 ===== */
+
+/* 3열 그리드 */
+.feature-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.feature-grid-3 .feature-item {
+  background: var(--white);
+  padding: 30px 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  text-align: center;
+}
+.feature-grid-3 .feature-item h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--main-color);
+  margin-bottom: 12px;
+}
+.feature-grid-3 .feature-item p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666;
+}
+
+/* 장점 리스트 */
+.benefit-list {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 8px;
+}
+.benefit-list ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.benefit-list li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 15px;
+  color: #555;
+}
+.benefit-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--main-color);
+  font-weight: bold;
+}
+
+/* 추천 대상 그리드 */
+.recommend-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  margin-bottom: 30px;
+}
+.recommend-item {
+  background: var(--white);
+  padding: 20px 12px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.recommend-item img {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 12px;
+}
+.recommend-item p {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.4;
+}
+.recommend-etc {
+  text-align: center;
+}
+.recommend-etc p {
+  display: inline-block;
+  background: var(--main-color);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 25px;
+  margin: 6px;
+  font-size: 14px;
+}
+
+/* 프로세스 스텝 */
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.process-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: var(--white);
+  padding: 24px;
+  border-radius: 8px;
+}
+.process-step .step-num {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: var(--main-color);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 16px;
+}
+.process-step .step-content h4 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.process-step .step-content p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* 주의사항 그리드 */
+.caution-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.caution-item {
+  background: var(--card);
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #e5e5e5;
+}
+.caution-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--main-color);
+  margin-bottom: 10px;
+}
+.caution-item p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.caution-text {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 13px;
+  color: #888;
+}
+
+/* 반응형 */
+@media (max-width: 900px) {
+  .feature-grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .recommend-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .caution-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .benefit-list ul {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .recommend-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .caution-grid {
+    grid-template-columns: 1fr;
+  }
+  .recommend-etc p {
+    display: block;
+    margin: 8px 0;
+  }
+}
+
+/* ===== 특별함 페이지 텍스트만 ===== */
+.text-only-content {
+  max-width: 800px;
+}
+.text-only-content p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #555;
+}
+
+/* ===== 메인 슬라이드 오버레이 ===== */
+.main_visual .swiper-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+.main_visual .swiper-slide .inwrap {
+  position: relative;
+  z-index: 2;
+}
