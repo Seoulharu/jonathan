@@ -2311,3 +2311,84 @@ footer {
   position: relative;
   z-index: 2;
 }
+
+/* ===== 특별함 페이지 텍스트 정렬 ===== */
+.special-text {
+  max-width: 100%;
+}
+.special-text p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #555;
+  text-align: left;
+  word-break: keep-all;
+}
+
+/* ===== 진료의 프로필 카드 ===== */
+.doctor-profile-card {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+.doctor-profile-card .doctor-photo {
+  flex-shrink: 0;
+  width: 200px;
+}
+.doctor-profile-card .doctor-photo img {
+  width: 100%;
+  border-radius: 8px;
+}
+.doctor-profile-card .doctor-info-card {
+  flex: 1;
+}
+.doctor-profile-card .doctor-info-card > h4 {
+  font-size: 20px;
+  margin-bottom: 24px;
+  color: var(--text);
+}
+.doctor-profile-card .doctor-info-card > h4 strong {
+  color: var(--main-color);
+  font-size: 24px;
+}
+.doctor-profile-card .career-section {
+  margin-top: 0;
+}
+.doctor-profile-card .career-group h4 {
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .doctor-profile-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .doctor-profile-card .doctor-photo {
+    width: 160px;
+  }
+  .doctor-profile-card .doctor-info-card {
+    text-align: left;
+  }
+}
+
+/* ===== 메인 히어로 오버레이 강화 ===== */
+.main_visual .swiper-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.6) 100%);
+  z-index: 1;
+}
+.main_visual .swiper-slide .inwrap {
+  position: relative;
+  z-index: 2;
+}
+.main_visual h2 {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+.main_visual p {
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
