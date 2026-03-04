@@ -4,10 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
   <title>서울하루치과 | 기준을 지키는 진료</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <link rel="stylesheet" href="assets/css/site.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <!-- DNS 선연결 - CDN 로딩 속도 개선 -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://unpkg.com">
+
+  <!-- 폰트 먼저, CSS는 한꺼번에 -->
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <!-- Swiper/AOS는 비동기 로드 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" media="print" onload="this.media='all'">
 </head>
 <body class="main-page">
 <header>
@@ -163,7 +171,7 @@
       <p class="desc">과잉 없이, 필요한 만큼.<br>치료 전부터 치료 이후까지.</p>
     </div>
     <div class="special-img">
-      <img src="assets/images/treat_implant.jpg" alt="서울하루치과 진료">
+      <img src="assets/images/treat_implant.jpg" loading="lazy" alt="서울하루치과 진료">
     </div>
     <div class="special-list">
       <div class="special-item">
@@ -275,9 +283,9 @@
   </a>
 </nav>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init({once: true});</script>
-<script src="assets/js/site.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+<script defer>window.addEventListener('DOMContentLoaded',function(){if(window.AOS)AOS.init({once:true});});</script>
+<script src="assets/js/site.js" defer></script>
 </body>
 </html>
