@@ -8,6 +8,11 @@
   <link rel="stylesheet" href="assets/css/site.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+  <style>
+    @media (max-width: 980px) {
+      .doctor-img.right[style*="visibility:hidden"] { display: none; }
+    }
+  </style>
 </head>
 <body class="main-page">
 <header>
@@ -126,18 +131,23 @@
 <!-- 의료진 소개 -->
 <section class="main_doctor">
   <div class="inwrap">
-    <div class="doctor-dual-wrap">
+    <p class="label" style="text-align:center; margin-bottom:48px;">의료진 소개</p>
+
+    <!-- 대표원장 조나단 -->
+    <div class="doctor-dual-wrap" style="margin-bottom:64px;">
       <div class="doctor-img left" data-aos="fade-right" data-aos-duration="800">
-        <img src="assets/images/main_doctor_01.jpg" alt="대표원장 1">
+        <img src="assets/images/main_doctor_01.jpg" alt="대표원장 조나단">
       </div>
       <div class="doctor-info" data-aos="fade-up" data-aos-delay="200">
-        <p class="label">의료진 소개</p>
         <h3>대표원장 <strong>조나단</strong></h3>
         <div class="doctor-credentials">
           <ul>
             <li>경희대학교 치의학과 졸업</li>
-            <li>대한치과보철학회 인증 우수보철치과의사</li>
             <li>서울대학교 치의학교육연수원 치주임플란트학 수료</li>
+            <li>대한치과보철학회 인증 우수보철치과의사</li>
+            <li>대한치과보철학회 정회원</li>
+            <li>대한구강악안면임플란트학회 정회원</li>
+            <li>SyL 교정 연구회 정회원</li>
             <li>전) 퍼스티지치과 외과 원장</li>
             <li>전) 365에이스치과 수술전담 원장</li>
             <li>전) 서울감동치과 대표원장</li>
@@ -147,9 +157,34 @@
         필요한 치료만 정확히 설명드리고, 동의하신 뒤에만 진행합니다."</p>
       </div>
       <div class="doctor-img right" data-aos="fade-left" data-aos-duration="800">
-        <img src="assets/images/main_doctor_02.jpg" alt="대표원장 2">
+        <img src="assets/images/main_doctor_02.jpg" alt="대표원장 조나단">
       </div>
     </div>
+
+    <!-- 원장 박지수 -->
+    <div class="doctor-dual-wrap">
+      <div class="doctor-img left" data-aos="fade-right" data-aos-duration="800">
+        <img src="assets/images/doctor_park.jpg" alt="원장 박지수">
+      </div>
+      <div class="doctor-info" data-aos="fade-up" data-aos-delay="200">
+        <h3>원장 <strong>박지수</strong></h3>
+        <div class="doctor-credentials">
+          <ul>
+            <li>조선대학교 치의학과 졸업</li>
+            <li>대한치과보철학회 정회원</li>
+            <li>대한구강악안면임플란트학회 정회원</li>
+            <li>소아치과 임상 실전코스 수료</li>
+            <li>MIR Clinical Endo &amp; Dental Implant Fundamentals Course 수료</li>
+            <li>전) 조선대학교 치과병원 1차 진료과장</li>
+            <li>전) 무안군 보건소 치과진료과장</li>
+          </ul>
+        </div>
+        <p class="quote">"발치는 최후의 선택입니다.<br>
+        살릴 수 있는 치아라면, 끝까지 살리는 방법을 먼저 찾겠습니다."</p>
+      </div>
+      <div class="doctor-img right" style="visibility:hidden;"></div>
+    </div>
+
   </div>
 </section>
 
