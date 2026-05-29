@@ -934,7 +934,7 @@ header.open #menu_but span:nth-child(3) {
 }
 
 .doctor-dual-wrap .doctor-info {
-  flex: 0 0 auto;
+  flex: 0 1 480px;
   text-align: center;
   padding: 0 20px;
 }
